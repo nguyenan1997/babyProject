@@ -1,0 +1,301 @@
+  @media only screen and (max-width: 1758px) {
+    .input-search {
+      width: 50%;
+    }
+
+    .input-search input {
+      width: 100%;
+      border-radius: 50px;
+    }
+
+    .main-2 {
+      height: auto;
+    }
+
+    .main-2-left {
+      display: none;
+    }
+
+    .main-2-right {
+      width: 100%;
+      gap: 20px;
+    }
+
+    .info-product {
+      width: 100%;
+    }
+
+    .main-6-left {
+      display: none;
+    }
+
+    .arrow-down {
+      left: 10%;
+    }
+
+    .main-10 {
+      gap: 20px
+    }
+
+    .search-box2 {
+      width: 100%;
+    }
+
+    .main-9-container-tab {
+      width: calc(33% - 3px);
+    }
+
+    .main-9-container-tab img {
+      object-fit: contain;
+    }
+
+    .slider-main3 {
+      width: 96%;
+    }
+
+    .main-4 img {
+      width: calc(33.33% - 10px);
+    }
+
+    .infor-product-head img {
+      height: 50%;
+    }
+  }
+
+  @media only screen and (max-width: 1605px) {
+
+    body {
+      padding: 0 20px;
+    }
+
+    .main-9-container-tab {
+      width: calc(49.99% - 5px);
+    }
+
+    .main-9-container-tab img {
+      width: auto;
+      height: auto;
+    }
+
+    .main-4 {
+      display: none;
+    }
+
+    .main-2 {
+      height: auto;
+    }
+
+    .main-2-right {
+      gap: 20px;
+    }
+
+    .info-product {
+      width: 50%;
+    }
+
+    .main-6-right {
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .info-product {
+      width: 428px;
+    }
+
+    .main-9-container-tab {
+      height: auto;
+    }
+
+  }
+
+  @media only screen and (max-width: 1296px) {
+    .main-3 {
+      display: none;
+    }
+
+    .header-search {
+      display: none;
+    }
+
+    .navbar {
+      display: none;
+    }
+
+    .main-9-container-tab {
+      width: calc(50% - 5px);
+      height: auto;
+    }
+
+    .main-9-container-tab img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .main-9-container-tab p {
+      font-size: 20px;
+    }
+
+    .main-10-PaymentMethod {
+      width: calc(33.33% - 10px);
+    }
+
+    .main-10-PaymentMethod svg {
+      display: none;
+    }
+
+    .main-4 {
+      display: none;
+    }
+
+    footer {
+      padding: 100px 140px;
+    }
+
+    footer .register {
+      display: none;
+    }
+
+    .footer-bottom {
+      font-size: 5px;
+    }
+
+    .main {
+      padding: 0;
+    }
+
+  }
+
+  @media only screen and (max-width: 1120px) {
+    .main-2-right {
+      justify-content: center;
+      gap: 10px;
+
+    }
+
+    .info-product {
+      width: 100%;
+      height: auto;
+    }
+
+    .main-2 {
+      padding: 10px 10px;
+      height: auto;
+    }
+
+    footer {
+      padding: 70px 100px;
+    }
+  }
+
+  @media only screen and (max-width: 1068px) {
+    .main-10 {
+      display: none;
+    }
+
+    .swiper {
+      font-size: 16px;
+    }
+
+    .main-1 img {
+      display: none;
+    }
+
+    .main {
+      padding: 0;
+    }
+  }
+
+  @media only screen and (max-width: 810px) {
+    .main {
+      padding: 0;
+    }
+
+    .footer-head {
+      gap: 20px
+    }
+
+    .footer-contact span {
+      font-size: 15px;
+    }
+
+    .footer-bottom p {
+      font-size: 12px;
+    }
+
+    .footer-bottom h4 {
+      font-size: 16px;
+    }
+
+    footer {
+      padding: 20px 30px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    .footer-contact span {
+      font-size: 10px;
+    }
+
+    .footer-head img {
+      width: 20%;
+      height: auto;
+    }
+
+    .footer-icon-mxh svg {
+      width: 10%;
+      height: 10%;
+    }
+  }
+
+  @media only screen and (max-width: 425px) {
+    .arrow-down {
+      left: 50%;
+    }
+
+    .infor-product-head img {
+      width: 100%;
+      height: 100%;
+    }
+
+    .info-product {
+      width: 48%;
+    }
+
+    .infor-product-head div {
+      font-size: 10px;
+      width: 15%;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-bottom-address {
+      align-items: center;
+    }
+
+  @media only screen and (max-width: 376px) {
+    .main-5-head span {
+      font-size: 25px;
+    }
+    .info-product{
+      width: 47%;
+      height: 100%;
+    }
+    .price-shop-buy span{
+      font-size: 15px;
+    }
+    .info-product{
+      height: 50%;
+    }
+    .main-2-right{
+      gap:0;
+      background-color: #fff;
+    }
+    header img{
+      display: none;
+    }
+  }
+}
