@@ -1,5 +1,26 @@
 const API = {
-    home: ["Trang Chủ", "Sản Phẩm", "Giới Thiệu", "Liên Hệ"],
+    home: [
+        {
+            title: "Trang Chủ",
+            link: "#",
+            color: "#1FACA1",
+        },
+        {
+            title: "Sản Phẩm",
+            link: "#",
+            color: "#1FACA1",
+        },
+        {
+            title: "Giới Thiệu",
+            link: "#",
+            color: "red",
+        },
+        {
+            title: "Liên Hệ",
+            link: "#",
+            color: "orange",
+        }
+    ],
     groupProducts: {
         slide1: {
             fileSlide:
@@ -874,7 +895,7 @@ for (let slide in (API.groupProducts)) {
 let flatcontentSlide = contentSlide.flat();
 const linkNav = document.querySelector('.link-nav');
 linkNav.innerHTML = `${API.home.map((value) => {
-    return `<span>${value}</span>`
+    return `<span link="${value.link}" style="color: ${value.color}">${value.title}</span>`
 }).join("")}`;
 // Render ra slide thứ nhất
 const swiperWrapper = document.querySelector('.swiper-wrapper');
@@ -1223,6 +1244,7 @@ main9Container.innerHTML = `${API.suggest.map((value) => {
 }).join("")}`
 
 renderList();
+renderListSideBar();
 
 function convertCurrencyString(str) {
     // Loại bỏ dấu chấm, dấu phẩy và chuỗi " VNĐ"
@@ -1331,53 +1353,157 @@ function buttonAddListItem(idproducts, name) {
     // Lưu lại giỏ hàng và cập nhật giao diện
     localStorage.setItem('cart', JSON.stringify(cart));
     renderList();
+    renderListSideBar()
     showCatalogPopup("Sản phẩm đã được thêm vào giỏ hàng");
 }
 
+// Nút xoá tất cả dữ liệu trong LocalStorage
+
 function renderList() {
     const tableListItem = document.querySelector('.tableBody');
-    let data = JSON.parse(localStorage.getItem('cart')) || [];
     const itemCountQuantity = document.querySelector(".countQuantity");
     const tableHead = document.querySelector('.tableHead');
     const buttonDeleteAllItem = document.querySelector('.buttonDeleteAllItem');
 
-    let count = 0;
+    const data = JSON.parse(localStorage.getItem('cart')) || [];
+    tableListItem.innerHTML = '';
+
     if (data.length === 0) {
-        tableListItem.innerHTML = "";
         tableHead.style.display = 'none';
         buttonDeleteAllItem.style.display = 'none';
         tableListItem.innerHTML = `
-        <img src="imgaes/emtycart.png"/>
-        <p style="color: red; font-size: 14px">Chưa có sản phẩm</p>`
-    }
-    else {
-        tableListItem.innerHTML = '';
+            <img src="imgaes/emtycart.png"/>
+            <p style="color: red; font-size: 14px">Chưa có sản phẩm</p>`;
+        itemCountQuantity.innerHTML = '0';
+    } else {
         buttonDeleteAllItem.style.display = 'block';
         tableHead.style.display = 'table-header-group';
-        data.forEach((product) => {
-            let tr = document.createElement('tr');
+
+        let count = 0;
+        data.forEach((product, index) => {
+            const totalPrice = (product.price.replace(/\./g, '') * product.countQuantity);
+            const tr = document.createElement('tr');
             tr.innerHTML = `
-                                <td><span><img src=${product.img}><span>${product.title}</span></span></td>
-                                <td><span>${product.countQuantity}</span></td>
-                                <td><span>${"₫" + new Intl.NumberFormat('vi-VN').format((product.price.replace(/\./g, '')) * product.countQuantity)}</span></td>
-                                `;
+                <td>
+                    <div class="product-info">
+                        <img src="${product.img}" alt="${product.title}" class="product-image"/>
+                        <span class="text-ellipsis">${product.title}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="quantity-control">
+                        <button class="btn-decrease" data-index="${index}">-</button>
+                        <span class="quantity">${product.countQuantity}</span>
+                        <button class="btn-increase" data-index="${index}">+</button>
+                    </div>
+                </td>
+                <td>
+                    <span>${"₫" + new Intl.NumberFormat('vi-VN').format(totalPrice)}</span>
+                </td>
+            `;
             tableListItem.appendChild(tr);
-            count = count + product.countQuantity
+            count += product.countQuantity;
         });
+        itemCountQuantity.innerHTML = `${count}`;
+
+        // Thêm sự kiện cho các nút tăng/giảm
+        addEventListenersToQuantityButtons(data);
     }
-    itemCountQuantity.innerHTML = `${count}`;
 }
 
-// Nút xoá tất cả dữ liệu trong LocalStorage
-function buttonDeleteAllItemCart() {
-    localStorage.clear();
-    renderList();
-    alert('Đã xoá toàn bộ sản phẩm trong giỏ hàng');
+function renderListSideBar() {
+    const tableListItem = document.querySelector('.tableBodySideBar');
+    const itemCountQuantity = document.querySelector(".countQuantitySideBar");
+    const tableHead = document.querySelector('.tableHeadSideBar');
+    const buttonDeleteAllItem = document.querySelector('.buttonDeleteAllItemSideBar');
+
+    const data = JSON.parse(localStorage.getItem('cart')) || [];
+    tableListItem.innerHTML = '';
+
+    if (data.length === 0) {
+        tableHead.style.display = 'none';
+        buttonDeleteAllItem.style.display = 'none';
+        tableListItem.innerHTML = `
+            <img src="imgaes/emtycart.png"/>
+            <p style="color: red; font-size: 14px">Chưa có sản phẩm</p>`;
+        itemCountQuantity.innerHTML = '0';
+    } else {
+        buttonDeleteAllItem.style.display = 'block';
+        tableHead.style.display = 'table-header-group';
+
+        let count = 0;
+        data.forEach((product, index) => {
+            const totalPrice = (product.price.replace(/\./g, '') * product.countQuantity);
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>
+                    <div class="product-info">
+                        <img src="${product.img}" alt="${product.title}" class="product-image"/>
+                        <span class="text-ellipsis">${product.title}</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="quantity-control">
+                        <button class="btn-decrease" data-index="${index}">-</button>
+                        <span class="quantity">${product.countQuantity}</span>
+                        <button class="btn-increase" data-index="${index}">+</button>
+                    </div>
+                </td>
+                <td>
+                    <span>${"₫" + new Intl.NumberFormat('vi-VN').format(totalPrice)}</span>
+                </td>
+            `;
+            tableListItem.appendChild(tr);
+            count += product.countQuantity;
+        });
+        itemCountQuantity.innerHTML = `${count}`;
+
+        // Thêm sự kiện cho các nút tăng/giảm
+        addEventListenersToQuantityButtons(data);
+    }
+}
+
+function addEventListenersToQuantityButtons(data) {
+    const decreaseButtons = document.querySelectorAll('.btn-decrease');
+    const increaseButtons = document.querySelectorAll('.btn-increase');
+
+    decreaseButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const index = event.target.dataset.index;
+            if (data[index].countQuantity > 1) {
+                data[index].countQuantity--;
+            }
+            localStorage.setItem('cart', JSON.stringify(data));
+            renderList();
+            renderListSideBar();
+        });
+    });
+
+    increaseButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const index = event.target.dataset.index;
+            data[index].countQuantity++;
+            localStorage.setItem('cart', JSON.stringify(data));
+            renderList();
+            renderListSideBar();
+        });
+    });
 }
 
 // Nút công tắc hiển thị ô giỏ hàng
 function buttonSwitches() {
     let containerListitem = document.querySelector('.shoppingCart');
+    if (containerListitem.classList.contains('hide')) {
+        containerListitem.classList.remove('hide');
+        containerListitem.classList.add('show')
+    }
+    else {
+        containerListitem.classList.remove('show');
+        containerListitem.classList.add('hide')
+    }
+}
+function buttonSwitchesSideBar() {
+    let containerListitem = document.querySelector('.shoppingCartSideBar');
     if (containerListitem.classList.contains('hide')) {
         containerListitem.classList.remove('hide');
         containerListitem.classList.add('show')
@@ -1412,16 +1538,25 @@ function handleClickOverLay() {
 }
 // Sự kiên này dùng để render ngay sau khi cây DOM của trang HTML được tạo
 document.addEventListener('DOMContentLoaded', function () {
-    renderList()
+    renderList();
+    renderListSideBar()
 })
 
 // Render ra danh sách navbar cho phần responsive
 function renderNav() {
     let sideNav = document.querySelector('.sidenav');
+    let buttonLogOut = document.createElement('button');
+    buttonLogOut.innerHTML = `<i class="fas fa-sign-out-alt"></i> Log Out`;
+    buttonLogOut.classList.add('logout-button');
+    
     let listNav = API.home.map((value) => {
-        return `<a href="#">${value}</a>`
+        return `<a href="${value.link}" style="color: ${value.color}">${value.title}</a>`
     }).join("");
-    sideNav.insertAdjacentHTML("beforeend", listNav)
+    sideNav.insertAdjacentHTML("beforeend", listNav);
+
+    sideNav.appendChild(buttonLogOut)
+
+
 }
 renderNav()
 
@@ -1484,11 +1619,17 @@ function buttonDeleteAllItemCart() {
     confirmPopup.style.display = 'block'; // Hiện bảng thông báo
 }
 
+function buttonDeleteAllItemCartSideBar() {
+    overlay2.style.display = 'block'; // Hiện lớp phủ
+    confirmPopup.style.display = 'block'; // Hiện bảng thông báo
+}
+
 // Xử lý khi nhấn Yes
 confirmYesBtn.addEventListener('click', function () {
     // Xóa tất cả sản phẩm ở đây (ví dụ: xóa từ localStorage)
     localStorage.removeItem('cart'); // Ví dụ xóa giỏ hàng
     renderList();
+    renderListSideBar();
 
     // Ẩn lớp phủ và bảng thông báo xác nhận
     overlay2.style.display = 'none';
@@ -1532,4 +1673,12 @@ document.addEventListener('click', (event) => {
   if (!isClickInsidePopup && !isClickOnSearchIcon) {
     searchPopup.classList.remove('active');
   }
+});
+
+// // Xử lý lỗi khi click vào phần tử trong giỏ hàng thì bị đóng lại luôn
+
+document.querySelectorAll('.list-item-added').forEach(item => {
+    item.addEventListener('click', (event) => {
+        event.stopPropagation(); // Ngăn chặn sự kiện click lan tỏa đến cha
+    });
 });
