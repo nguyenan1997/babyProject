@@ -1,46 +1,97 @@
-header {
+/* Header */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: auto;
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: 20px;
+    background-color: #f7f6f6;
 }
 
+.img-banner {
+    display: flex;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 1450px) {
+    .img-banner {
+      width: 1450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .img-banner {
+      width: 100%;
+    }
+}
+
+.header-green{
+    background-color: #4CAF50;
+    display: block;
+}
+
+.container-header-search{
+    margin: 0 auto;
+}
+.input-search2{
+    display: none;
+}
+
+
+.nav-search{
+    display: none;
+}
+.search-popup{
+    display: none;
+}
 .navbar-icon{
     display: none;
 }
 .header-search {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    background-color: #4CAF50;
-    padding: 20px 300px;
-    height: 100px;
     align-items: center;
+    height: 100px;
+    padding: 0 20px;
+    justify-content: center;
+    gap: 30px;
 }
 
 .numberCall{
-    font-size: 1.5vw;
+    font-size: 24px;
     font-family: Cherry Bomb, sans-serif; color: #3E4095;
 }
 /* Ảnh ABC */
 .search-img {
     width: 73px;
-    height: 73px;
+    height: auto;
+    margin-right: 142px;
+}
+
+
+
+.container-logo2{
+    display: none;
 }
 
 .input-search {
-    width: 40vw;
+    width: 750px;
     height: auto;
     position: relative;
 }
+.input-search2{
+    display: none;
+}
 
 .input {
-
     width: 100%;
     height: 51px;
     outline: none;
     border-top-left-radius: 20px;
     border: none;
-    padding: 10px 20px;
+    padding: 0 20px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
 }
@@ -48,6 +99,10 @@ header {
 .input::placeholder {
     font-size: 16px;
     font-family: Comfortaa;
+}
+
+.background-color-linknav{
+    background-color: white;
 }
 
 .button-search {
@@ -79,7 +134,7 @@ header {
 }
 
 .favarites img{
-   width: 3vw;
+   width: 42px;
 }
 
 .info-user {
@@ -89,7 +144,7 @@ header {
 .info-user span {
     height: auto;
     border-left: 1px solid #74D778;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
 .info-user span svg:hover {
@@ -107,11 +162,11 @@ header {
 
 .shoppingCart {
     position: absolute;
-    width: 400px;
-    height: 500px;
+    width: 470px;
+    height: auto;
     background-color: #fff;
-    top: 0px;
-    right: 0px;
+    top: calc(100% + 5px);
+    right: -21px;
     z-index: 999999;
     border-radius: 5px;
     border: 1px solid #ccc;
@@ -125,9 +180,10 @@ header {
 
 .shoppingCart p{
     text-align: center;
-    font-size: 1.2vw;
+    font-size: 20px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #344241;
+    margin: 10px 0;
 }
 
 .countQuantity{
@@ -145,8 +201,8 @@ header {
 }
 
 .shoppingCart button{
-    position: fixed;
-    bottom: 0;
+    position: sticky;
+    bottom: 0%;
     width: 100%;
     height: 6vh;
     border: none;
@@ -254,16 +310,24 @@ tr span{
 
 .navbar {
     display: flex;
-    padding: 0 280px;
     justify-content: space-between;
     align-items: center;
     background-color: #fff;
     height: 50px;
 }
 
+.navbar-menu{
+    display: none;
+}
+
 .nav-left {
     display: flex;
-    gap: 20px;
+    gap: 60px;
+}
+
+.link-nav{
+    display: flex;
+    gap: 60px;
 }
 
 .nav-left span {
@@ -290,5 +354,119 @@ tr span{
 .contact {
     display: flex;
     gap: 15px;
-    align-items: center;
+    align-items:baseline;
+    padding-right: 45px;
 }
+.contact :nth-child(2){
+    font-family: Comfortaa;
+}
+
+.shopping-navigation{
+    display: none;
+}
+.more{
+    display: none;
+}
+
+/* Phần CSS navbar Menu */
+.sidenav {
+    height: 100%; /* 100% chiều cao */
+    width: 0; /* Bắt đầu với chiều rộng 0 */
+    position: fixed; /* Đặt vị trí cố định */
+    z-index: 9999999; /* Nằm trên cùng */
+    top: 0; /* Đỉnh trang */
+    left: 0; /* Bên trái */
+    background-color: #f6f8f5; /* Màu nền đen */
+    overflow-x: hidden; /* Ẩn cuộn ngang */
+    padding-top: 60px; /* Đệm 60px từ trên cùng */
+    transition: 0.5s; /* Hiệu ứng chuyển tiếp 0.5 giây */
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px; /* Đệm cho liên kết */
+    text-decoration: none; /* Không gạch chân */
+    font-size: 20px; /* Kích thước chữ */
+    color: #53b125; /* Màu chữ */
+    display: block; /* Đảm bảo liên kết chiếm toàn bộ chiều rộng */
+    transition: 0.3s; /* Hiệu ứng chuyển tiếp cho liên kết */
+    font-family: 'Cherry Bomb';
+  }
+  
+  .sidenav a:hover, .offcanvas a:focus {
+    color: #f1f1f1; /* Màu chữ khi hover */
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  
+  #main {
+    transition: margin-left .5s; /* Chuyển tiếp cho lề trái */
+    padding: 20px;
+    overflow: hidden;
+    width: 100%; /* Chiều rộng đầy đủ */
+  }
+  
+  .topnav {
+    overflow: hidden; /* Ẩn cuộn */
+    width: 45px;
+    height: 45px;
+  }
+  
+  .topnav a {
+    float: left; /* Nối trái */
+    display: block;
+    color: #f2f2f2; /* Màu chữ */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #fff; /* Màu nền khi hover */
+    color: black; /* Màu chữ khi hover */
+  }
+  
+  .topnav a.active {
+    background-color: #4CAF50; /* Màu nền cho liên kết đang hoạt động */
+    color: white; /* Màu chữ cho liên kết đang hoạt động */
+  }
+  .topnav a svg path{
+    stroke: #1FACA1;
+    stroke-width: 3;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+    .sidenav { padding-top: 15px; }
+    .sidenav a { font-size: 18px; }
+  }
+  
+  
+  a svg {
+    transition: all .5s ease;
+    &:hover {
+        transform: rotate(180deg); /* Lỗi cú pháp: Đổi từ #transform thành transform */
+    }
+  }
+  
+  #ico {
+    display: none; /* Ẩn phần tử có ID là ico */
+  }
+  
+  .menu {
+    background: #ded3d3;
+    display: none; /* Ẩn menu */
+    padding: 5px;
+    width: 320px;
+    @include border-radius(5px);
+    transition: all 0.5s ease; /* Lỗi cú pháp: Đổi từ #transition thành transition */
+  }
+
+

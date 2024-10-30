@@ -5,8 +5,25 @@
     transition: all 0.3s ease; /* Áp dụng transition mượt mà cho mọi thuộc tính */
 }
 
-body{
-    display: flex;
+.info-user-fixed-right{
+    position: fixed;
+    right: 0;
+    z-index: 9999;
+    top: 60%;
     flex-direction: column;
-    background-color:aliceblue;
-}
+    background-color: #73A875;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    gap: 10px;
+  }
+  .info-user-fixed-right span{
+    padding: 2px 7px;
+    border-left: none;
+  }
+  .info-user-fixed-right span svg{
+    width: 30px;
+    height: 30px;
+  }
+  .info-user-fixed-right span:active{
+    scale: 1.2;
+  }

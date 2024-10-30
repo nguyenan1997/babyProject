@@ -1,222 +1,128 @@
-/* Laptop */
-@media only screen and (max-width: 1441px) {
-  .header-search {
-    padding: 0 13%;
-  }
-
-  .input-search input {
-    width: 100%;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-
-  }
-
-  .search-img {
-    width: 10%;
-    height: 80%;
-  }
-
-  .navbar {
-    padding: 0 13%;
-  }
-
-  .nav-left span {
-    font-size: 1.5vw;
-
-  }
-
-  .favarites {
-    justify-content: center;
-  }
-
-  .info-user {
-    display: flex;
-    align-items: center;
-  }
-
-  .main {
-    padding: 20px 13vw;
-  }
-
-  .price-shop .price-shop-rate span {
-    margin: 0;
-  }
-
-  .infor-product-head img {
-    width: 100%;
-  }
-
-  .main-6-left {
-    justify-content: center;
-    gap: 20px
-  }
-
-  footer {
-    padding: 50px 40px;
-
-  }
-}
-
-@media only screen and (max-width: 1024px) {
-
-  .header-search {
-    padding: 0 10%;
-  }
-
-  .navbar {
-    padding: 0 10%;
-  }
-
-  .main {
-    padding: 0 10%;
-  }
-
-  .main-10-PaymentMethod {
-    padding: 0.5vw 2vw;
-  }
-
-  .register {
+@media only screen and (max-width: 768px) {
+  .input-search {
     display: none;
   }
 
-  .footer-bottom-address h4 {
-    font-size: 1.4vw;
+  .nav-left {
+    display: none;
   }
 
-  .footer-bottom-address p {
-    font-size: 1.2vw;
-  }
-
-  .footer-contact span {
-    font-size: 2vw;
-  }
-
-  .main-10-PaymentMethod svg {
-    width: 4vw;
-    height: 4vw;
-  }
-
-  .main-10-PaymentMethod {
-    height: 10vw;
-  }
-
-  .main-10-PaymentMethod-right {
-    gap: 0;
-  }
-
-  .main-2-more {
+  .header-search {
+    gap: 7vw;
     height: auto;
   }
 
-  .group-2 {
-    position: absolute;
-    top: 5%;
+  .navbar-menu {
+    display: block;
+  }
+
+  .input-search2 {
+    display: block;
+  }
+
+  .input {
+    height: 40px;
+    outline: 1px solid #ccc;
+  }
+
+  .button-search {
+    height: 40px;
+  }
+
+  .numberCall {
+    white-space: nowrap;
+    font-size: 22px;
+  }
+
+  .navbar {
+    gap: 20px;
+  }
+
+  .overlayFullScreen {
+    display: none;
+    /* Mặc định là ẩn */
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Nền tối mờ */
+    z-index: 1;
+    /* Dưới thanh điều hướng */
   }
 
-  .main-6-left-bottom-price {
+  .topnav {
+    overflow: hidden;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    color: aqua;
+  }
+
+  .main-2 {
+    padding: 0;
+  }
+
+  .main-2-right {
+    width: 100%;
+    overflow: auto;
+    flex-direction: row;
     flex-wrap: wrap;
+    gap: 0;
   }
-}
 
-/* Tablet */
-@media only screen and (max-width: 768px) {
-  body {
-    position: relative;
+  .main-2-right .infor-product-head img {
+    width: 90%;
+    height: auto;
+  }
+
+  .main-2-more {
+    left: 20%;
+    width: 210px;
+    height: 50px;
+  }
+
+  .img3-main-left {
+    bottom: 18%;
+  }
+
+  .swiper3 {
+    overflow: hidden;
+  }
+
+  .main-6-right {
+    flex-wrap: wrap;
+    overflow: auto;
+  }
+
+  .main-6-right-slide .infor-product-head img {
+    width: 60%;
+    height: auto;
+  }
+
+  .main-6-right-slide {
+    flex: 1 0 33.33%;
   }
 
   .main-2-left {
     display: none;
   }
 
-  .main-2-right {
+  .main-2 {
+    background-color: white;
     width: 100%;
   }
 
-  .overlayFullScreen {
-    position: absolute;
-    background-color: rgb(0, 0, 0);
-    opacity: 0.7;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: none;
-    width: 100%;
-    display: none;
-    z-index: 10;
+  .info-product {
+    border: 1px solid #ccc;
+    flex: 1 0 50%;
   }
 
-  .group-2 {
-    position: absolute;
-    top: 7%;
-    width: 100%;
-    height: 100%;
-  }
-
-  .header-search {
-    padding: 0 0%;
-    display: none;
-  }
-
-  .navbar {
-    padding: 0 4%;
-  }
-
-  .main {
-    padding: 0 0%;
-  }
-
-  .header-search img {
-    display: none;
-  }
-
-  .navbar-icon {
-    display: block;
-    position: absolute;
-    font-size: 2vw;
-    top: 1px;
-    left: 10px;
-    background-color: #a79191;
-    width: 20px;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 2px;
-    color: rgb(53, 21, 21);
-    z-index: 999999;
-  }
-
-  .input-search {
-    width: 48vw;
-  }
-
-  .main3-flashsale {
-    gap: 10vw;
-  }
-
-  .main3-flashsale-left span:nth-child(2) svg {
-    width: 13px;
-    height: 13px;
-  }
-
-  .price-shop-buy span {
-    font-size: 2.2vw;
-  }
-
-  .main3-flashsale-right span {
-    width: 20px;
-    height: 20px;
-  }
-
-  .progress-bar-group-test span {
-    font-size: 2vw;
-  }
-
-  .main-9-container-tab {
-    width: calc(50% - 3px);
+  .wrapper3 .swiper-slide {
+    height: 250px;
   }
 
   .main-6 {
@@ -225,343 +131,367 @@
 
   .main-6-left {
     width: 100%;
-    display: flex;
-    flex-direction: row;
     align-items: center;
   }
 
   .main-6-left>img {
-    width: 50%;
+    width: 70%;
+  }
 
+  .price-shop-buy span {
+    width: 100%;
   }
 
   .main-6-left-bottom-price {
-    justify-content: unset;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .navbar-icon {
-    font-size: 4vw;
-    top: 5px;
-    left: 5px;
-    background-color: #a79191;
-    width: 45px;
-    height: 45px;
-    border-radius: 9px;
-    color: rgb(244 228 228);
-  }
-
-  .navbar-icon:hover {
-    scale: 1.2;
-  }
-
-  .navbar-icon:active {
-    background-color: #a79191;
-  }
-
-  .shoppingCart {
-    left: -268px;
-  }
-
-  .shoppingCart>p {
-    font-size: 3vw;
-  }
-
-  .arrow-up {
-    left: 77%;
-  }
-
-  .tableBody p {
-    display: none;
-  }
-
-  tr th {
-    font-size: 18px;
-  }
-
-  .footer-head {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .swiper3 .swiper-wrapper {
-    height: 214px;
-  }
-
-  .countQuantity {
-    width: 3vw;
-    height: auto;
-    border-radius: 15px;
-    text-align: center;
-    color: red;
-    font-family: Encode Sans Semi Condensed;
-    font-weight: 600;
-  }
-  .info-user svg{
-    width: 70%;
-    height: 70%;
-  }
-  .input{
-    height: unset;
-  }
-  .button-search{
-    width: unset;
-    height: 35px;
-  }
-  .main-10{
-    margin-bottom: 100px;
-  }
-}
-
-@media only screen and (max-width: 426px) {
-  footer {
-    padding: 0;
-    display: flex;
-    flex-direction: column-reverse;
-  }
-
-  .input-search{
-    width: 70vw;
-  }
-
-  .header-search{
-    flex-direction: column;
-  }
-
-  .footer-bottom {
-    align-items: unset;
-    flex-direction: row;
-  }
-
-  body {
-    padding: 0;
-  }
-
-  .arrow-down {
-    left: 50%;
-  }
-
-  .infor-product-head img {
-    width: 100%;
-    height: 100%;
-  }
-
-  .main-6-left-bottom .hotsale{
-    font-size: 25px;
-  }
-
-  .info-product {
-    width: 48%;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    border: 1px solid #ccc;
-  }
-
-  .infor-product-head div {
-    font-size: 10px;
-    width: 15%;
-  }
-
-  .footer-head {
-    flex-direction: column;
-  }
-
-  .footer-bottom-address {
-    align-items: unset;
+    justify-content: left;
+    gap: 15px;
   }
 
   .main-9-container {
-    flex-wrap: nowrap;
-    gap: 0;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 100%;
     overflow: auto;
   }
 
   .main-9-container-tab {
-    width: 40%;
+    flex: 1 0 calc(50% - 10px);
+    flex-direction: row;
+  }
+
+  .main-9-container-tab img {
+    width: 60%;
   }
 
   .main-9-container-tab p {
-    font-size: 10px;
+    font-size: 25px;
   }
 
-  .main-2-right div:nth-child(4) .infor-product-head img {
-    margin-bottom: 47px;
+  .footer-head {
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
   }
 
-  .main-6-right {
-    gap: 0
+  .footer-head>img {
+    align-self: center;
   }
 
-  .main-2 {
-    background-color: white;
-    padding: 0;
+  .main-10 {
+    flex-wrap: wrap;
   }
 
-  .main-2-right {
-    display: flex;
-    gap: 10px;
-    overflow: auto;
-    gap: 0;
+  .main-10-PaymentMethod {
+    flex: 1 0 100%;
   }
 
-  .info-product {
-    width: 100%;
+  .footer-bottom {
+    flex-direction: column;
   }
 
-  .infor-product-bottom>p {
-    font-size: 4vw;
+  .backgroundColorFooter {
+    padding: 20px 10px;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev,
+  .swiper-button-next2,
+  .swiper-button-prev2 {
+    display: none;
+  }
+
+  .main-9-container-tab p {
+    font-size: 21px;
+  }
+
+  .main3-flashsale {
+    justify-content: space-between;
+  }
+}
+
+@media only screen and (max-width: 662px) {
+  .search-img {
+    margin-right: 80px;
+  }
+
+  .button-search {
+    width: 100px;
+  }
+
+  .main3-flashsale-left span:first-child {
+    font-size: 28px;
+  }
+
+  .main3-flashsale-right span {
+    font-size: 16px;
   }
 
   .price-shop-buy span {
-    font-size: 4vw;
+    font-size: 20px;
   }
 
-  .infor-product-head div {
-    font-size: 4vw;
+  .infor-product-bottom p {
+    font-size: 18px;
   }
+}
 
-  .main3-flashsale-left span {
-    font-size: 5vw !important
-  }
-
-  .main3-flashsale-right {
-    display: none;
-  }
-
-  .navbar {
-    display: none;
-  }
-
+@media only screen and (max-width: 599px) {
   .img-banner {
     display: none;
   }
 
-  .main-6-left svg {
+  .header-search {
+    display: none;
+  }
+  .button-search span{
     display: none;
   }
 
-  .main-6-right {
-    flex-wrap: nowrap;
-    overflow: auto;
-  }
-
-  .infor-product-head img {
-    width: 75%;
-    height: 90%;
-  }
-
-  .swiper3 .swiper-wrapper {
-    height: 53vw;
-  }
-
-  .main-10 {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .main-10 .main-10-PaymentMethod {
-    width: 70%;
-  }
-
-  .main-10-PaymentMethod {
-    height: 20vw;
-  }
-
-  .main-10 .main-10-PaymentMethod svg {
-    width: 30%;
-    height: 80%;
-  }
-
-  .main-9-container-tab {
-    width: 50%;
-  }
-
-  .main-9-container {
-    flex-wrap: wrap;
-  }
-
-  .main-10-PaymentMethod-right p {
-    font-size: 3vw !important
-  }
-
-  .swiper3 .swiper-wrapper {
-    height: 57vw;
-  }
-
-  .main-10 {
-    margin-top: 33px;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
-    gap: 10px;
-  }
-
-  .footer-head img {
+  .contact {
     display: none;
   }
 
-  .footer-contact {
-    display: none;
+  .shopping-navigation {
+    display: block;
   }
 
-  .footer-icon-mxh svg {
-    width: 12%;
-    height: 12%;
+  .shopping-navigation svg {
+    width: 30px;
+    height: 30px;
   }
-}
 
+  .more {
+    display: block;
+  }
 
-@media only screen and (max-width: 376px) {
-  .main-5-head span {
-    font-size: 25px;
+  .navbar {
+    justify-content: space-around;
   }
 
   .info-product {
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    border: 1px solid #ccc;
+    flex: 1 0 50%;
   }
 
-  .price-shop-buy span {
-    font-size: 15px;
+  .wrapper3 .swiper-slide {
+    height: 220px;
   }
 
-  .main-2-right {
-    gap: 0;
-    background-color: #fff;
+  .main-10-PaymentMethod {
+    flex: 1 0 100%;
   }
 
-  header img {
-    display: none;
+  .main-2-right .infor-product-head img {
+    width: 70%;
   }
 
-  .infor-product-bottom>p {
-    font-size: 4vw;
+  .main3-flashsale-left span:first-child {
+    font-size: 20px;
   }
 
-  .price-shop-buy span {
-    font-size: 10px;
+  .main3-flashsale-right span {
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
   }
 
-  .infor-product-head div {
-    font-size: 7px;
+  .main3-flashsale-left span:nth-child(2) svg {
+    width: 15px;
+    height: 15px;
   }
 
-  .main-2 {
-    background-color: white;
-    padding: 0;
+  .info-user-fixed-right span {
+    padding: 2px 7px;
+    border-left: none;
   }
 
-  .arrow-down {
-    left: 48%;
+  .info-user-fixed-right span svg {
+    width: 30px;
+    height: 30px;
   }
-  .header-search{
-    gap: 7px;
+
+  .info-user-fixed-right span:active {
+    scale: 1.2;
   }
 }
 
-@media only screen and (max-width: 320px) {}
+@media only screen and (max-width: 515px) {
+  .main-3 {
+    padding: 0;
+  }
+
+  .search-box2 {
+    width: 342px;
+  }
+
+  .search-box2 input {
+    width: 100%;
+  }
+
+  .main-9-container-tab {
+    flex: 1 0 100%;
+  }
+  .wrapper3 .swiper-slide{
+    height: 180px;
+  }
+}
+
+@media only screen and (max-width: 426px) {
+  .main3-flashsale-left span:first-child {
+    font-size: 15px;
+  }
+
+  .container-logo2 {
+    display: block;
+  }
+
+  .container-logo2>img {
+    width: 40px;
+    height: auto;
+  }
+
+  .input-search2 {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .my-swiper-slide {
+    height: 120px;
+  }
+
+  .info-product {
+    flex: 1 0 100%;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .main-2-right .infor-product-head img {
+    width: 50%;
+  }
+
+  .main-6-left-bottom-price {
+    gap: 5px;
+  }
+
+  .main3-flashsale {
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .main3-flashsale-right {
+    gap: 0;
+  }
+
+  .main3-flashsale-right span {
+    height: 20px;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 0;
+  }
+
+  .nav-search {
+    display: block;
+  }
+  .main-6-left-bottom-price{
+    flex-wrap: wrap;
+  }
+.catalog-popup {
+  width: 70%;
+  font-size: 15px;
+}
+
+
+  /* Ô tìm kiếm nổi bên dưới navbar */
+  .search-popup {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(248, 235, 235);
+    color: black;
+    padding: 10px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    /* Vô hiệu hóa tương tác khi ẩn */
+    z-index: 20;
+  }
+
+  .search-popup.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    /* Kích hoạt tương tác khi hiển thị */
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+
+  .back-icon {
+    font-size: 20px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+
+  .search-popup input {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+  }
+
+  .search-input-icon {
+    font-size: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+
+  /* Lịch sử tìm kiếm */
+  .search-history p {
+    margin: 0;
+    padding: 5px;
+    font-size: 14px;
+    color: #555;
+  }
+
+  .search-history p:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .main-6-left-bottom-price {
+    flex-wrap: wrap;
+  }
+
+  .search-box2 {
+    width: 290px;
+  }
+
+  .main-9-container-tab img {
+    width: 55%;
+  }
+
+  .main-10-PaymentMethod-right p:first-child {
+    font-size: 15px;
+  }
+
+  .main-10-PaymentMethod-right p:nth-child(2) {
+    font-size: 14px;
+  }
+
+  .main-2-right .infor-product-head img {
+    width: 100%;
+  }
+
+  .infor-product-head div {
+    font-size: 12px;
+    top: 0;
+  }
+
+}

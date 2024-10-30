@@ -1,139 +1,93 @@
-
-.row {
-  display: flex;
+.sidenav {
+  height: 100%; /* 100% chiều cao */
+  width: 0; /* Bắt đầu với chiều rộng 0 */
+  position: fixed; /* Đặt vị trí cố định */
+  z-index: 1; /* Nằm trên cùng */
+  top: 0; /* Đỉnh trang */
+  left: 0; /* Bên trái */
+  background-color: #111; /* Màu nền đen */
+  overflow-x: hidden; /* Ẩn cuộn ngang */
+  padding-top: 60px; /* Đệm 60px từ trên cùng */
+  transition: 0.5s; /* Hiệu ứng chuyển tiếp 0.5 giây */
 }
 
-.row.wrap {
-  flex-wrap: wrap;
-}
-.row.justify-between {
-  justify-content: space-between;
-}
-.row.justify-around {
-  justify-content: space-around;
-}
-.row.justify-start {
-  justify-content: start;
+.sidenav a {
+  padding: 8px 8px 8px 32px; /* Đệm cho liên kết */
+  text-decoration: none; /* Không gạch chân */
+  font-size: 25px; /* Kích thước chữ */
+  color: #818181; /* Màu chữ */
+  display: block; /* Đảm bảo liên kết chiếm toàn bộ chiều rộng */
+  transition: 0.3s; /* Hiệu ứng chuyển tiếp cho liên kết */
 }
 
-.col {
-  flex-grow: 1;
-  flex-basis: 0%;
-  flex-shrink: 0;
+.sidenav a:hover, .offcanvas a:focus {
+  color: #f1f1f1; /* Màu chữ khi hover */
 }
 
-.md-1, .md-2, .md-3, .md-4, .md-5, .md-6, .md-7, .md-8, .md-9, .md-10, .md-11, .md-12, .lg-1, .lg-2, .lg-3, .lg-4, .lg-5, .lg-6, .lg-7, .lg-8, .lg-9, .lg-10, .lg-11, .lg-12 {
-  flex-grow: 0;
-  flex-basis: auto;
-  flex-shrink: 0;
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
 }
 
-.container, .container-lg, .container-md {
-  padding: auto;
-  margin: 0 auto;
-  box-sizing: border-box;
+
+#main {
+  transition: margin-left .5s; /* Chuyển tiếp cho lề trái */
+  padding: 20px;
+  overflow: hidden;
+  width: 100%; /* Chiều rộng đầy đủ */
 }
 
-@media only screen and (max-width: 768px)  {
-  .container-md {
-    width: 100%;
-  }
-  .md-0 {
-    display: none;
-  }
-  .md-1 {
-    width: 8.33333%;
-  }
-  .md-2 {
-    width: 16.66666%;
-  }
-  .md-3 {
-    width: 25%;
-  }
-  .md-4 {
-    width: 33.3333%;
-  }
-  .md-5 {
-    width: 41.6666%;
-  }
-  .md-6 {
-    width: 50%;
-    
-  }
-  .md-7 {
-    width: 58.3333%;
-    
-  }
-  .md-8 {
-    width: 66.6666%;
-    
-  }
-  .md-9 {
-    width: 75%;
-    
-  }
-  .md-10 {
-    width: 83.3333%;
-    
-  }
-  .md-11 {
-    width: 91.6666%;
-    
-  }
-  .md-12 {
-    width: 100%;
-    
+.topnav {
+  background-color: #333; /* Màu nền cho thanh điều hướng */
+  overflow: hidden; /* Ẩn cuộn */
+}
+
+.topnav a {
+  float: left; /* Nối trái */
+  display: block;
+  color: #f2f2f2; /* Màu chữ */
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd; /* Màu nền khi hover */
+  color: black; /* Màu chữ khi hover */
+}
+
+.topnav a.active {
+  background-color: #4CAF50; /* Màu nền cho liên kết đang hoạt động */
+  color: white; /* Màu chữ cho liên kết đang hoạt động */
+}
+
+
+@media screen and (max-height: 450px) {
+  .sidenav { padding-top: 15px; }
+  .sidenav a { font-size: 18px; }
+}
+
+
+a svg {
+  transition: all .5s ease;
+  &:hover {
+      transform: rotate(180deg; /* Lỗi cú pháp: Đổi từ #transform thành transform */
   }
 }
 
-@media only screen and (min-width: 769px)  {
-  .container-md {
-    width: 1180px;
-  }
-  .lg-0 {
-    display: none;
-  }
-  .lg-1 {
-    width: 8.33333%;
-  }
-  .lg-2 {
-    width: 16.66666%;
-  }
-  .lg-3 {
-    width: 25%;
-  }
-  .lg-4 {
-    width: 33.3333%;
-  }
-  .lg-5 {
-    width: 41.6666%;
-  }
-  .lg-6 {
-    width: 50%;
-    
-  }
-  .lg-7 {
-    width: 58.3333%;
-    
-  }
-  .lg-8 {
-    width: 66.6666%;
-    
-  }
-  .lg-9 {
-    width: 75%;
-    
-  }
-  .lg-10 {
-    width: 83.3333%;
-    
-  }
-  .lg-11 {
-    width: 91.6666%;
-    
-  }
-  .lg-12 {
-    width: 100%;
-    
-  }
+#ico {
+  display: none; /* Ẩn phần tử có ID là ico */
+}
+
+.menu {
+  background: #000;
+  display: none; /* Ẩn menu */
+  padding: 5px;
+  width: 320px;
+  @include border-radius(5px);
+  transition: all 0.5s ease; /* Lỗi cú pháp: Đổi từ #transition thành transition */
 }
