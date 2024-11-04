@@ -22,6 +22,11 @@
   flex-shrink: 0;
 }
 
+.padding-62{
+  padding: 0 4%;
+}
+
+
 .md-1, .md-2, .md-3, .md-4, .md-5, .md-6, .md-7, .md-8, .md-9, .md-10, .md-11, .md-12, .lg-1, .lg-2, .lg-3, .lg-4, .lg-5, .lg-6, .lg-7, .lg-8, .lg-9, .lg-10, .lg-11, .lg-12 {
   flex-grow: 0;
   flex-basis: auto;
@@ -92,7 +97,7 @@
 
 @media only screen and (min-width: 769px)  {
   .container-md {
-    width: 1450px;
+    max-width: 1540px;
   }
   .lg-0 {
     display: none;

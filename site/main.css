@@ -137,6 +137,18 @@
     width: 100%;
 }
 
+.main-2 .main-2-left .group-2 .img1-main-left{
+    top: 5%;
+    left: 0;
+}
+
+.main-7 .main-2-left .group-2 .img1-main-left{
+    top: 12%;
+    left: 10%;
+}
+
+
+
 .image-group-2 {
     position: absolute;
     top: 0;
@@ -209,21 +221,21 @@
 
 .img1-main-left {
     position: absolute;
-    top: 5%;
-    left: 0%;
-    width: 85%;
+    top: 15%;
+    left: 7%;
+    width: 74%;
 }
 
 .img2-main-left {
     position: absolute;
     top: 25%;
     right: 0px;
-    width: 40%;
+    width: 37%;
 }
 
 .img3-main-left {
     position: absolute;
-    bottom: 10%;
+    top: 43%;
     right: 20%;
     width: 60%;
     height: auto;
@@ -232,13 +244,13 @@
 .main-2-more {
     position: absolute;
     bottom: 2%;
-    left: 35%;
-    font-size: 24px;
+    left: 32%;
+    font-size: 1.5vw;
     color: #FFFFFF;
     padding: 10px 20px;
     background-color: #3E4095;
     border-radius: 50px;
-    width: 234px;
+    width: 32%;
     height: 58px;
     font-family: 'Encode Sans Semi Condensed', sans-serif;
     font-weight: 600;
@@ -273,6 +285,10 @@
     scale: 1.01;
 }
 
+.info-product:hover .infor-product-head .heart-main3{
+    display: block;
+}
+
 .main-2-right {
     width: 50%;
     display: flex;
@@ -288,8 +304,7 @@
 }
 
 .main-2-right .infor-product-head img{
-    width: 342px;
-    height: 346px;
+    width: 100%;    
     object-fit: contain;
 }
 
@@ -318,6 +333,9 @@
     font-family: Montserrat;
     font-weight: 600;
     color: #3E4095;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .price-shop .price-shop-rate {
@@ -349,6 +367,10 @@
     font-family: Montserrat;
     color: #000000;
     font-weight: 600;
+}
+
+.price-shop-buy svg{
+    cursor: pointer;
 }
 
 td span{
@@ -414,6 +436,10 @@ td span{
     transition: box-shadow 0.3s ease, transform 0.3s ease; /* Hiệu ứng mượt mà */
 }
 
+.swiper-slide{
+    cursor: pointer;
+}
+
 .wrapper2 .swiper-slide:hover{
     border-radius: 8px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ sang phải */
@@ -436,6 +462,9 @@ td span{
     display: flex;
 }
 
+.button-main3{
+    cursor: pointer;
+}
 
 .swiper-button-prev3,.swiper-button-next3{
     display: none;
@@ -524,6 +553,7 @@ td span{
     justify-content: space-around;
 }
 .slider-main3-head img{
+    width: 100%;
     object-fit: contain;
     height: 165px;
     margin-top: 40px;
@@ -538,7 +568,7 @@ td span{
 }
 .progress-bar-group{
     width: 50%;
-    height: 60px;
+    height: 45px;
     margin-top: 10px;
 }
 .slider-main3-bottom{
@@ -675,7 +705,28 @@ td span{
     background-color: #fff;
     position: relative;
     padding: 20px 25px;
-    justify-content: space-between;
+    justify-content: flex-end;
+    gap: 80px;
+    flex: 1 0 42.5%;
+}
+
+.main-6-left>.heart-main3{
+    left: 20px;
+    top: 20px;
+    font-size: 50px;
+}
+
+.main-6-left:hover .heart-main3{
+    display: block;
+}
+
+.main-6-left:hover>img{
+    scale: 1.05;
+}
+
+.main-6-left>img{
+    margin: auto;
+    width: 100%;
 }
 
 .svg-1{
@@ -702,6 +753,7 @@ td span{
     justify-content: space-between;
     text-align: center;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .main-6-left-bottom-price button{
@@ -717,6 +769,7 @@ td span{
     align-items: center;
     font-family: Montserrat;
     justify-content: center;
+    cursor: pointer;
 }
 
 .main-6-left-bottom-price button:hover{
@@ -739,8 +792,8 @@ td span{
 }
 
 .main-6-right-slide .infor-product-head img{
-    width: 259.38px;
-    height: 260.52px;
+    width: 100%;
+    height: auto;
     object-fit: contain;
 }
 
@@ -775,6 +828,7 @@ td span{
     gap: 20px;
     align-items: center;
     padding: 10px 20px;
+    cursor: pointer;
 }
 
 .main-9-container-tab:hover img,
@@ -784,7 +838,7 @@ td span{
 }
 
 .main-9-container-tab img{
-    width: 245px;
+    width: 100%;
     height: 184px;
     object-fit: contain;
 }

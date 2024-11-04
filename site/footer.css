@@ -7,6 +7,7 @@
 
 .backgroundColorFooter{
     background-color: #2E2E2E;
+    padding: 4%;
 }
 .padding-70{
     padding: 70px;
@@ -63,6 +64,10 @@
     align-items: flex-end;
 }
 
+.footer-head>img{
+    cursor: pointer;
+}
+
 .register {
     display: flex;
     flex-direction: column;
@@ -85,10 +90,26 @@
     align-items: center;
 }
 
+.footer-icon-mxh svg{
+    cursor: pointer;
+}
+
+.footer-icon-mxh svg:hover{
+    scale: 1.3;
+}
+
 .footer-contact {
     display: flex;
     gap: 20px;
     align-items: center;
+}
+
+.footer-contact svg:hover{
+    scale: 1.3;
+}
+
+.footer-contact span{
+    cursor: pointer;
 }
 
 .footer-contact span {
@@ -120,6 +141,7 @@
     line-height: 22px;
     text-align: left;
     color: #fff;
+    white-space: nowrap;
 }
 
 .footer-bottom-address p {

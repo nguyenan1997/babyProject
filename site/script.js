@@ -21,6 +21,7 @@ const API = {
             color: "orange",
         }
     ],
+    imgBanner: ["imgaes/birtday.png", "imgaes/birtday.png", "imgaes/birtday.png"],
     groupProducts: {
         slide1: {
             fileSlide:
@@ -898,6 +899,7 @@ linkNav.innerHTML = `${API.home.map((value) => {
     return `<span link="${value.link}" style="color: ${value.color}">${value.title}</span>`
 }).join("")}`;
 // Render ra slide thứ nhất
+
 const swiperWrapper = document.querySelector('.swiper-wrapper');
 swiperWrapper.innerHTML = `${allSlide.map((value, index) => {
     return `
@@ -1013,25 +1015,13 @@ renderWrapper2();
 wrapper3.innerHTML = `${API.imagesbanner.map((banner) => {
     return `<div class="swiper-slide"><img src= ${banner.images}></div>`
 }).join("")}`;
-const heartNonColorAll = document.querySelectorAll('.heart-nonColor');
-const heartRedAll = document.querySelectorAll('.heart-red');
-heartNonColorAll.forEach((heartNonColor, index) => {
-    // Thêm sự kiện click cho trái tim rỗng
-    heartNonColor.addEventListener('click', function () {
-        heartNonColor.style.display = 'none';  // Ẩn trái tim rỗng
-        heartRedAll[index].style.display = 'inline'; // Hiển thị trái tim đỏ tương ứng
-    });
-});
 
-heartRedAll.forEach((heartRed, index) => {
-    // Thêm sự kiện click cho trái tim đỏ
-    heartRed.addEventListener('click', function () {
-        heartRed.style.display = 'none';   // Ẩn trái tim đỏ
-        heartNonColorAll[index].style.display = 'inline'; // Hiển thị trái tim rỗng tương ứng
-    });
-})
 // Đo số lượng đã bán
 main6Left.innerHTML = `<img src=${API.HotSellingProducts.productHotLest.img} alt="Ảnh bên trái">
+        <p class="heart-main3">
+            <i class="fa-regular fa-heart heart-nonColor" data-product-id="0"></i>
+            <i class="fa-solid fa-heart heart-red" data-product-id="0" style="display: none;"></i>
+        </p>
         <div>
           <div class="main-6-left-bottom">
             <p class="hotsale">${API.HotSellingProducts.productHotLest.title}</p>
@@ -1047,9 +1037,9 @@ main6Left.innerHTML = `<img src=${API.HotSellingProducts.productHotLest.img} alt
           </div>
           <div class="main-6-left-bottom-price">
             <span
-              style="color: #FF480E; font-size: 34px; font-family: Montserrat;">${API.HotSellingProducts.productHotLest.price}</span>
+              style="color: #FF480E; font-size: 34px; font-family: Montserrat;">${API.HotSellingProducts.productHotLest.price} VNĐ</span>
             <span
-              style="font-size: 18px; font-family: Montserrat;color: #BBBBBB; text-decoration: line-through;">${API.HotSellingProducts.productHotLest.prePrice}</span>
+              style="font-size: 18px; font-family: Montserrat;color: #BBBBBB; text-decoration: line-through;">${API.HotSellingProducts.productHotLest.prePrice} VNĐ</span>
             <button onClick="buttonAddListItem(${API.HotSellingProducts.productHotLest.id},'HotSellingProducts')">
               <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g clip-path="url(#clip0_1_1399)">
@@ -1105,10 +1095,14 @@ function renderMain6Right() {
             arrayItem.push(API.HotSellingProducts[product]);
         }
     }
-    main6Right.innerHTML = `${arrayItem.map((value) => {
+    main6Right.innerHTML = `${arrayItem.map((value,index) => {
         return `<div class="info-product main-6-right-slide">
             <div class="infor-product-head">
                 <img src=${value.img} alt="">
+                <p class="heart-main3">
+                    <i class="fa-regular fa-heart heart-nonColor" data-product-id="${index + 1}"></i>
+                    <i class="fa-solid fa-heart heart-red" data-product-id="${index + 1}" style="display: none;"></i>
+                </p>
             </div>
             <div class="infor-product-bottom">
                 <p>${value.title}</p>
@@ -1152,7 +1146,47 @@ function renderMain6Right() {
         </div>`
     }).join('')}`
 }
-renderMain6Right()
+renderMain6Right();
+
+const heartNonColorAll = document.querySelectorAll('.heart-nonColor');
+const heartRedAll = document.querySelectorAll('.heart-red');
+console.log(heartNonColorAll);
+console.log(heartRedAll)
+heartNonColorAll.forEach((heartNonColor, index) => {
+    // Thêm sự kiện click cho trái tim rỗng
+    heartNonColor.addEventListener('click', function () {
+        heartNonColor.style.display = 'none';  // Ẩn trái tim rỗng
+        heartRedAll[index].style.display = 'inline'; // Hiển thị trái tim đỏ tương ứng
+    });
+});
+
+heartRedAll.forEach((heartRed, index) => {
+    // Thêm sự kiện click cho trái tim đỏ
+    heartRed.addEventListener('click', function () {
+        heartRed.style.display = 'none';   // Ẩn trái tim đỏ
+        heartNonColorAll[index].style.display = 'inline'; // Hiển thị trái tim rỗng tương ứng
+    });
+})
+
+// Khởi tạo Swiper cho Banner
+const bannerSwiper = new Swiper('#swiper-banner', {
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+        el: '#swiper-banner .swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next-Banner', // Sử dụng nút điều hướng tùy chỉnh
+        prevEl: '.swiper-button-prev-Banner', // Sử dụng nút điều hướng tùy chỉnh
+    },
+    autoplay: {
+        delay: 2000, // Chuyển ảnh sau mỗi 2 giây
+        disableOnInteraction: false,
+    },
+});
+
 
 if (typeof Swiper !== "undefined") {
     const swiper = new Swiper('.swiper', {
@@ -1163,11 +1197,14 @@ if (typeof Swiper !== "undefined") {
             prevEl: '.swiper-button-prev',
         },
         breakpoints: {
+            992: {
+                slidesPerView: 4,
+            },
             769: {
-                slidesPerView: 5,
+                slidesPerView: 3,
             },
             427: {
-                slidesPerView: 3,
+                slidesPerView: 2,
             },
             0: {
                 slidesPerView: 1,
@@ -1201,9 +1238,11 @@ const swiper2 = new Swiper('.swiper2', {
         prevEl: '.swiper-button-prev2',
     },
     breakpoints: {
-
-        769: {
+        993: {
             slidesPerView: 4,
+        },
+        769: {
+            slidesPerView: 3,
         },
         480: {
             slidesPerView: 2,
@@ -1226,7 +1265,7 @@ const swiper3 = new Swiper('.swiper3', {
         769: {
             slidesPerView: 3,
         },
-        425: {
+        559: {
             slidesPerView: 2,
         },
         0: {
@@ -1259,7 +1298,7 @@ arrowDown.style.display = 'block';
 
 function renderMain2Right(realindex) {
     let main2Right = document.querySelectorAll('.main-2-right');
-    main2Right.forEach((element) => {
+    main2Right.forEach((element,index) => {
         element.innerHTML = `${contentSlide[realindex].map((value) => {
             let a = convertCurrencyString(value.prevPrice);
             let b = convertCurrencyString(value.price);
@@ -1267,6 +1306,10 @@ function renderMain2Right(realindex) {
                         <div class="infor-product-head">
                             <img src=${value.img} alt="">
                             <div>${Math.round((b - a) / b * 100)}%</div>
+                            <p class="heart-main3">
+                                <i class="fa-regular fa-heart heart-nonColor" data-product-id="${index + 1}"></i>
+                                <i class="fa-solid fa-heart heart-red" data-product-id="${index + 1}" style="display: none;"></i>
+                            </p>
                         </div>
                                 <div class="infor-product-bottom">
                                     <p>${value.title}</p>
@@ -1357,7 +1400,7 @@ function buttonAddListItem(idproducts, name) {
     showCatalogPopup("Sản phẩm đã được thêm vào giỏ hàng");
 }
 
-// Nút xoá tất cả dữ liệu trong LocalStorage
+// Phần Render ra giỏ hàng của Header
 
 function renderList() {
     const tableListItem = document.querySelector('.tableBody');
@@ -1365,23 +1408,26 @@ function renderList() {
     const tableHead = document.querySelector('.tableHead');
     const buttonDeleteAllItem = document.querySelector('.buttonDeleteAllItem');
 
+    // Lấy dữ liệu từ localStorage
     const data = JSON.parse(localStorage.getItem('cart')) || [];
-    tableListItem.innerHTML = '';
+    tableListItem.innerHTML = ''; // Xóa nội dung cũ
 
+    // Kiểm tra nếu giỏ hàng rỗng
     if (data.length === 0) {
         tableHead.style.display = 'none';
         buttonDeleteAllItem.style.display = 'none';
         tableListItem.innerHTML = `
-            <img src="imgaes/emtycart.png"/>
-            <p style="color: red; font-size: 14px">Chưa có sản phẩm</p>`;
+            <img src="imgaes/emptyCart.webp" alt="Giỏ hàng trống"/>
+            <p style="color: red; font-size: 21px">Chưa có sản phẩm</p>`;
         itemCountQuantity.innerHTML = '0';
     } else {
+        // Nếu có sản phẩm trong giỏ hàng
         buttonDeleteAllItem.style.display = 'block';
         tableHead.style.display = 'table-header-group';
 
-        let count = 0;
+        let count = 0; // Khởi tạo biến đếm sản phẩm
+
         data.forEach((product, index) => {
-            const totalPrice = (product.price.replace(/\./g, '') * product.countQuantity);
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>
@@ -1392,24 +1438,146 @@ function renderList() {
                 </td>
                 <td>
                     <div class="quantity-control">
-                        <button class="btn-decrease" data-index="${index}">-</button>
-                        <span class="quantity">${product.countQuantity}</span>
+                        <button class="btn-decrease" data-index="${index}" ${product.countQuantity === 0 ? 'disabled' : ''}>-</button>
+                        <input type="number" class="quantity-input" value="${product.countQuantity}" min="0" data-index="${index}">
                         <button class="btn-increase" data-index="${index}">+</button>
                     </div>
                 </td>
                 <td>
-                    <span>${"₫" + new Intl.NumberFormat('vi-VN').format(totalPrice)}</span>
+                    <span>${"₫" + new Intl.NumberFormat('vi-VN').format(parseFloat(product.price.replace(/\./g, '')) * product.countQuantity)}</span>
+                </td>
+                <td>
+                    <button class="btn-delete" data-index="${index}">Xoá</button>
                 </td>
             `;
             tableListItem.appendChild(tr);
-            count += product.countQuantity;
+            count += product.countQuantity; // Cập nhật số lượng
         });
-        itemCountQuantity.innerHTML = `${count}`;
 
-        // Thêm sự kiện cho các nút tăng/giảm
+        // Cập nhật thông tin số lượng
+        itemCountQuantity.innerHTML = `${count > 99 ? "99+" : count}`;
+
+        // Thêm sự kiện cho các nút tăng/giảm và nút xoá
         addEventListenersToQuantityButtons(data);
+        addDeleteButtonListeners(data);
     }
 }
+
+function addEventListenersToQuantityButtons(data) {
+    const decreaseButtons = document.querySelectorAll('.btn-decrease');
+    const increaseButtons = document.querySelectorAll('.btn-increase');
+    const quantityInputs = document.querySelectorAll('.quantity-input');
+
+    decreaseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const index = button.dataset.index;
+            const input = quantityInputs[index];
+            let newQuantity = Math.max(0, parseInt(input.value) - 1);
+            input.value = newQuantity;
+            checkQuantity(newQuantity, index, data);
+        });
+    });
+
+    increaseButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const index = button.dataset.index;
+            const input = quantityInputs[index];
+            let newQuantity = parseInt(input.value) + 1;
+            input.value = newQuantity;
+
+            checkQuantity(newQuantity, index, data);
+        });
+    });
+
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            const index = input.dataset.index;
+            const newQuantity = input.value.trim() === "" ? 0 : parseInt(input.value);
+            checkQuantity(newQuantity, index, data);
+        });
+    });
+}
+
+function addDeleteButtonListeners(data) {
+    const deleteButtons = document.querySelectorAll('.btn-delete');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const index = button.dataset.index;
+            showConfirmationModalForDeletion(index, data);
+        });
+    });
+}
+
+function checkQuantity(newQuantity, index, data) {
+    if (newQuantity === 0) {
+        showConfirmationModal(index, data);
+    } else {
+        data[index].countQuantity = newQuantity;
+        localStorage.setItem('cart', JSON.stringify(data));
+        renderList(); // Cập nhật danh sách
+        renderListSideBar()
+    }
+
+    // Vô hiệu hoá nút trừ nếu số lượng là 0
+    const decreaseButton = document.querySelector(`.btn-decrease[data-index="${index}"]`);
+    decreaseButton.disabled = newQuantity === 0;
+}
+
+function showConfirmationModal(index, data) {
+    const overlay = document.createElement('div');
+    overlay.classList.add('product-overlay');
+    overlay.style.display = 'flex';
+    overlay.innerHTML = `
+        <div class="confirmation-modal">
+            <div class="exclamation-mark">!</div>
+            <p>Bạn có muốn xoá sản phẩm này không?</p>
+            <button id="confirmYes">Có</button>
+            <button id="confirmNo">Không</button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    document.getElementById('confirmYes').onclick = function () {
+        data.splice(index, 1); // Xoá sản phẩm
+        localStorage.setItem('cart', JSON.stringify(data));
+        renderList(); // Cập nhật danh sách
+        renderListSideBar();
+        document.body.removeChild(overlay); // Tắt modal
+    }
+
+    document.getElementById('confirmNo').onclick = function () {
+        document.body.removeChild(overlay); // Tắt modal
+    }
+}
+
+function showConfirmationModalForDeletion(index, data) {
+    const overlay = document.createElement('div');
+    overlay.classList.add('product-overlay');
+    overlay.style.display = 'flex';
+    overlay.innerHTML = `
+        <div class="confirmation-modal">
+            <div class="exclamation-mark">!</div>
+            <p>Bạn có muốn xoá sản phẩm này không?</p>
+            <button id="confirmYesDelete">Có</button>
+            <button id="confirmNoDelete">Không</button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    document.getElementById('confirmYesDelete').onclick = function () {
+        data.splice(index, 1); // Xoá sản phẩm
+        localStorage.setItem('cart', JSON.stringify(data));
+        renderList(); // Cập nhật danh sách
+        renderListSideBar();
+        document.body.removeChild(overlay); // Tắt modal
+    }
+
+    document.getElementById('confirmNoDelete').onclick = function () {
+        document.body.removeChild(overlay); // Tắt modal
+    }
+}
+
+// Phần Render ra giỏ hàng phần SideBar
 
 function renderListSideBar() {
     const tableListItem = document.querySelector('.tableBodySideBar');
@@ -1417,23 +1585,26 @@ function renderListSideBar() {
     const tableHead = document.querySelector('.tableHeadSideBar');
     const buttonDeleteAllItem = document.querySelector('.buttonDeleteAllItemSideBar');
 
+    // Lấy dữ liệu từ localStorage
     const data = JSON.parse(localStorage.getItem('cart')) || [];
-    tableListItem.innerHTML = '';
+    tableListItem.innerHTML = ''; // Xóa nội dung cũ
 
+    // Kiểm tra nếu giỏ hàng rỗng
     if (data.length === 0) {
         tableHead.style.display = 'none';
         buttonDeleteAllItem.style.display = 'none';
         tableListItem.innerHTML = `
-            <img src="imgaes/emtycart.png"/>
-            <p style="color: red; font-size: 14px">Chưa có sản phẩm</p>`;
+            <img src="imgaes/emptyCart.webp" alt="Giỏ hàng trống"/>
+            <p style="color: red; font-size: 21px">Chưa có sản phẩm</p>`;
         itemCountQuantity.innerHTML = '0';
     } else {
+        // Nếu có sản phẩm trong giỏ hàng
         buttonDeleteAllItem.style.display = 'block';
         tableHead.style.display = 'table-header-group';
 
-        let count = 0;
+        let count = 0; // Khởi tạo biến đếm sản phẩm
+
         data.forEach((product, index) => {
-            const totalPrice = (product.price.replace(/\./g, '') * product.countQuantity);
             const tr = document.createElement('tr');
             tr.innerHTML = `
                 <td>
@@ -1444,51 +1615,153 @@ function renderListSideBar() {
                 </td>
                 <td>
                     <div class="quantity-control">
-                        <button class="btn-decrease" data-index="${index}">-</button>
-                        <span class="quantity">${product.countQuantity}</span>
-                        <button class="btn-increase" data-index="${index}">+</button>
+                        <button class="btn-decrease-sidebar" data-index="${index}" ${product.countQuantity === 0 ? 'disabled' : ''}>-</button>
+                        <input type="number" class="quantity-input-sidebar" value="${product.countQuantity}" min="0" data-index="${index}">
+                        <button class="btn-increase-sidebar" data-index="${index}">+</button>
                     </div>
                 </td>
                 <td>
-                    <span>${"₫" + new Intl.NumberFormat('vi-VN').format(totalPrice)}</span>
+                    <span>${"₫" + new Intl.NumberFormat('vi-VN').format(parseFloat(product.price.replace(/\./g, '')) * product.countQuantity)}</span>
+                </td>
+                <td>
+                    <button class="btn-delete-sidebar" data-index="${index}">Xoá</button>
                 </td>
             `;
             tableListItem.appendChild(tr);
-            count += product.countQuantity;
+            count += product.countQuantity; // Cập nhật số lượng
         });
-        itemCountQuantity.innerHTML = `${count}`;
 
-        // Thêm sự kiện cho các nút tăng/giảm
-        addEventListenersToQuantityButtons(data);
+        // Cập nhật thông tin số lượng
+        itemCountQuantity.innerHTML = `${count > 99 ? "99+" : count}`;
+
+        // Thêm sự kiện cho các nút tăng/giảm và nút xoá
+        addEventListenersToQuantityButtonsSideBar(data);
+        addDeleteButtonListenersSidebar(data);
     }
 }
 
-function addEventListenersToQuantityButtons(data) {
-    const decreaseButtons = document.querySelectorAll('.btn-decrease');
-    const increaseButtons = document.querySelectorAll('.btn-increase');
+function addEventListenersToQuantityButtonsSideBar(data) {
+    const decreaseButtons = document.querySelectorAll('.btn-decrease-sidebar');
+    const increaseButtons = document.querySelectorAll('.btn-increase-sidebar');
+    const quantityInputs = document.querySelectorAll('.quantity-input-sidebar');
 
     decreaseButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            const index = event.target.dataset.index;
-            if (data[index].countQuantity > 1) {
-                data[index].countQuantity--;
-            }
-            localStorage.setItem('cart', JSON.stringify(data));
-            renderList();
-            renderListSideBar();
+        button.addEventListener('click', () => {
+            const index = button.dataset.index;
+            const input = quantityInputs[index];
+            let newQuantity = Math.max(0, parseInt(input.value) - 1);
+            input.value = newQuantity;
+            checkQuantitySideBar(newQuantity, index, data);
         });
     });
 
     increaseButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            const index = event.target.dataset.index;
-            data[index].countQuantity++;
-            localStorage.setItem('cart', JSON.stringify(data));
-            renderList();
-            renderListSideBar();
+        button.addEventListener('click', () => {
+            const index = button.dataset.index;
+            const input = quantityInputs[index];
+            let newQuantity = parseInt(input.value) + 1;
+            input.value = newQuantity;
+
+            checkQuantitySideBar(newQuantity, index, data);
+        });
+    });
+
+    quantityInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            const index = input.dataset.index;
+            const newQuantity = input.value.trim() === "" ? 0 : parseInt(input.value);
+            checkQuantitySideBar(newQuantity, index, data);
         });
     });
 }
+
+function addDeleteButtonListenersSidebar(data) {
+    const deleteButtons = document.querySelectorAll('.btn-delete-sidebar');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const index = button.dataset.index;
+            showConfirmationModalForDeletionSideBar(index, data);
+        });
+    });
+}
+
+function checkQuantitySideBar(newQuantity, index, data) {
+    if (newQuantity === 0) {
+        showConfirmationModal(index, data);
+    } else {
+        data[index].countQuantity = newQuantity;
+        localStorage.setItem('cart', JSON.stringify(data));
+        renderList(); // Cập nhật danh sách
+        renderListSideBar()
+    }
+
+    // Vô hiệu hoá nút trừ nếu số lượng là 0
+    const decreaseButton = document.querySelector(`.btn-decrease-sidebar[data-index="${index}"]`);
+    decreaseButton.disabled = newQuantity === 0;
+}
+
+function showConfirmationModalSideBar(index, data) {
+    const overlay = document.createElement('div');
+    overlay.classList.add('product-overlay-sidebar');
+    overlay.style.display = 'flex';
+    overlay.innerHTML = `
+        <div class="confirmation-modal">
+            <div class="exclamation-mark">!</div>
+            <p>Bạn có muốn xoá sản phẩm này không?</p>
+            <button id="confirmYes">Có</button>
+            <button id="confirmNo">Không</button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    document.getElementById('confirmYes').onclick = function () {
+        data.splice(index, 1); // Xoá sản phẩm
+        localStorage.setItem('cart', JSON.stringify(data));
+        renderList(); // Cập nhật danh sách
+        renderListSideBar();
+        document.body.removeChild(overlay); // Tắt modal
+    }
+
+    document.getElementById('confirmNo').onclick = function () {
+        document.body.removeChild(overlay); // Tắt modal
+    }
+}
+
+function showConfirmationModalForDeletionSideBar(index, data) {
+    const overlay = document.createElement('div');
+    overlay.classList.add('product-overlay');
+    overlay.style.display = 'flex';
+    overlay.innerHTML = `
+        <div class="confirmation-modal">
+            <div class="exclamation-mark">!</div>
+            <p>Bạn có muốn xoá sản phẩm này không?</p>
+            <button id="confirmYesDelete">Có</button>
+            <button id="confirmNoDelete">Không</button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    document.getElementById('confirmYesDelete').onclick = function () {
+        data.splice(index, 1); // Xoá sản phẩm
+        localStorage.setItem('cart', JSON.stringify(data));
+        renderList(); // Cập nhật danh sách
+        renderListSideBar()
+        document.body.removeChild(overlay); // Tắt modal
+    }
+
+    document.getElementById('confirmNoDelete').onclick = function () {
+        document.body.removeChild(overlay); // Tắt modal
+    }
+}
+
+
+// Gọi hàm renderList để hiển thị danh sách khi trang được tải
+document.addEventListener('DOMContentLoaded', () => {
+    renderList(); // Gọi hàm renderList sau khi DOM đã được tải
+    renderListSideBar()
+});
+
+
 
 // Nút công tắc hiển thị ô giỏ hàng
 function buttonSwitches() {
@@ -1544,17 +1817,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Render ra danh sách navbar cho phần responsive
 function renderNav() {
-    let sideNav = document.querySelector('.sidenav');
+    let sideNav = document.querySelectorAll('.sidenav');
     let buttonLogOut = document.createElement('button');
     buttonLogOut.innerHTML = `<i class="fas fa-sign-out-alt"></i> Log Out`;
     buttonLogOut.classList.add('logout-button');
-    
+
     let listNav = API.home.map((value) => {
         return `<a href="${value.link}" style="color: ${value.color}">${value.title}</a>`
     }).join("");
-    sideNav.insertAdjacentHTML("beforeend", listNav);
+    sideNav.forEach((value) => {
+        value.insertAdjacentHTML("beforeend", listNav);
+        value.appendChild(buttonLogOut)
+    })
 
-    sideNav.appendChild(buttonLogOut)
 
 
 }
@@ -1562,9 +1837,11 @@ renderNav()
 
 // Phần tạo navbar
 function openNav() {
-    const sideNav = document.querySelector(".sidenav");
+    const sideNav = document.querySelectorAll(".sidenav");
 
-    sideNav.style.width = "250px"; // Mở rộng chiều rộng
+    sideNav.forEach((value) => {
+        value.style.width = "250px"
+    })
 
     // Hiển thị overlay nếu nó đang ẩn
     if (overlay.style.display === 'none' || overlay.style.display === '') {
@@ -1575,9 +1852,11 @@ function openNav() {
 }
 
 function closeNav() {
-    const sideNav = document.querySelector(".sidenav");
+    const sideNav = document.querySelectorAll(".sidenav");
 
-    sideNav.style.width = "0"; // Đặt lại chiều rộng về 0
+    sideNav.forEach((value) => {
+        value.style.width = "0"
+    })
 
     // Ẩn overlay nếu nó đang hiển thị
     if (overlay.style.display === 'block') {
@@ -1657,22 +1936,24 @@ const backIcon = document.querySelector('.back-icon');
 
 // Hiện popup với hiệu ứng mượt mà khi nhấp vào icon tìm kiếm
 searchIcon.addEventListener('click', () => {
-  searchPopup.classList.add('active');
+    searchPopup.classList.add('active');
+    overlay.style.display = "block"
 });
 
 // Ẩn popup với hiệu ứng mượt mà khi nhấp vào icon quay lại
 backIcon.addEventListener('click', () => {
-  searchPopup.classList.remove('active');
+    searchPopup.classList.remove('active');
+    overlay.style.display = "none"
 });
 
 // Đóng popup khi nhấp ngoài vùng tìm kiếm
 document.addEventListener('click', (event) => {
-  const isClickInsidePopup = searchPopup.contains(event.target);
-  const isClickOnSearchIcon = searchIcon.contains(event.target);
+    const isClickInsidePopup = searchPopup.contains(event.target);
+    const isClickOnSearchIcon = searchIcon.contains(event.target);
 
-  if (!isClickInsidePopup && !isClickOnSearchIcon) {
-    searchPopup.classList.remove('active');
-  }
+    if (!isClickInsidePopup && !isClickOnSearchIcon) {
+        searchPopup.classList.remove('active');
+    }
 });
 
 // // Xử lý lỗi khi click vào phần tử trong giỏ hàng thì bị đóng lại luôn
@@ -1681,4 +1962,31 @@ document.querySelectorAll('.list-item-added').forEach(item => {
     item.addEventListener('click', (event) => {
         event.stopPropagation(); // Ngăn chặn sự kiện click lan tỏa đến cha
     });
+});
+
+document.querySelector('.back-to-top').addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth" // Hiệu ứng cuộn mượt
+    });
+});
+
+function toggleLanguageMenu() {
+    const menu = document.querySelector('.language-menu');
+    menu.style.display = menu.style.display === 'block' ? 'none' : 'block'
+}
+
+function toggleLanguageMenu2() {
+    const menu = document.querySelectorAll('.language-menu');
+    menu[1].style.display = menu[1].style.display === 'block' ? 'none' : 'block'
+}
+
+
+// Đóng menu khi click bên ngoài
+document.addEventListener('click', function (event) {
+    const menu = document.getElementById('languageMenu');
+    const moreButton = document.querySelector('.more-button-search');
+    if (!moreButton.contains(event.target) && !menu.contains(event.target)) {
+        menu.style.display = 'none';
+    }
 });
