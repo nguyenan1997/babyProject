@@ -53,6 +53,10 @@
     text-align: center;
 }
 
+.search-box2 button span{
+    color: black;
+}
+
 .search-box2 button:hover {
     background-color: #45a049;
     scale: 1.2;
@@ -124,6 +128,7 @@
 .footer-bottom{
     display: flex;
     justify-content: space-between;
+    gap: 50px;
 }
 
 .footer-bottom-address {

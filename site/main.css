@@ -286,7 +286,7 @@
 }
 
 .info-product:hover .infor-product-head .heart-main3{
-    display: block;
+    transform: scale(1);
 }
 
 .main-2-right {
@@ -341,11 +341,16 @@
 .price-shop .price-shop-rate {
     font-size: 12px;
     margin-bottom: 10px;
+    display: flex;
+    gap: 100px;
 }
 
 .price-shop .price-shop-rate span {
     margin-right: 12px;
     color: #FEB53E;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
 }
 
 .price-shop-buy {
@@ -383,6 +388,7 @@ td span{
     margin-top: 20px;
     padding: 20px 30px;
     overflow: hidden;
+    position: relative;
 }
 .progress-bar-group-test span{
     font-size: 11.34px;
@@ -432,6 +438,9 @@ td span{
 .slider-main3 {
     border-radius: 5px;
 }
+
+
+
 .wrapper2 .swiper-slide{
     transition: box-shadow 0.3s ease, transform 0.3s ease; /* Hiệu ứng mượt mà */
 }
@@ -443,6 +452,11 @@ td span{
 .wrapper2 .swiper-slide:hover{
     border-radius: 8px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2); /* Đổ bóng nhẹ sang phải */
+
+}
+
+.wrapper2 .swiper-slide:hover .slider-main3-head .heart-main3{
+    transform: scale(1);
 }
 
 .slider-main3:hover .slider-main3-head{
@@ -454,9 +468,6 @@ td span{
 }
 .slider-main3:hover .heart-main3{
     display: block;
-}
-.heart-main3:active{
-    background-color: pink;
 }
 .slider-main3:hover .slider-main3-head .button-main3{
     display: flex;
@@ -484,6 +495,7 @@ td span{
     text-align: center;
     position: relative;
     overflow: hidden;
+    padding: 15px;
 }
 .rate-1-selector{
     position: absolute;
@@ -503,6 +515,7 @@ td span{
 }
 .container-rate{
     position: relative;
+    height: 18px;
 }
 
 .swiper-button-prev2, .swiper-button-next2{
@@ -517,7 +530,6 @@ td span{
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 10px rgba(165, 47, 47, 0.2); /* Đổ bóng nhẹ */
     cursor: pointer; /* Đổi con trỏ thành hình bàn tay khi hover */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng khi hover */
     font-size: 20px;
@@ -571,6 +583,7 @@ td span{
     height: 45px;
     margin-top: 10px;
 }
+
 .slider-main3-bottom{
     display: flex;
     flex-direction: column;
@@ -600,10 +613,13 @@ td span{
     top: 0;
     font-size: 30px;
     font-weight: 400;
-    display: none;
+    transform: scale(0);
     color: rgb(224, 93, 93);
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
+
+
 .heart-2{
     display: none;
 }
@@ -642,6 +658,7 @@ td span{
     display: none;
     justify-content: space-around;
     align-items: center;
+    transition: display 0.5s ease;
 }
 .button-main3:active{
     transform: translateY(-6px);
@@ -706,22 +723,26 @@ td span{
     position: relative;
     padding: 20px 25px;
     justify-content: flex-end;
-    gap: 80px;
+    gap: 0;
     flex: 1 0 42.5%;
 }
 
-.main-6-left>.heart-main3{
+
+
+
+.main-6 .main-6-left>.heart-main3{
     left: 20px;
     top: 20px;
-    font-size: 50px;
+    right: 100%;
+    font-size: 35px;
 }
 
 .main-6-left:hover .heart-main3{
-    display: block;
+    transform: scale(1);
 }
 
 .main-6-left:hover>img{
-    scale: 1.05;
+    scale: 1.02;
 }
 
 .main-6-left>img{
@@ -744,6 +765,10 @@ td span{
     flex-direction: column;
     gap: 20px;
 }
+
+.main-6-left-bottom div span:nth-child(2){
+    font-weight: 600;
+}
 .main-6-left-bottom p{
     font-size: 0.2vw;
 }
@@ -754,7 +779,19 @@ td span{
     text-align: center;
     margin-top: 20px;
     flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
 }
+
+.main-6-left-bottom-price span:nth-child(1){
+    font-weight: 600;
+}
+
+.main-6-left-bottom-price>span:nth-child(2){
+    margin-right: auto;
+}
+
+
 
 .main-6-left-bottom-price button{
     width: 165px;
@@ -916,8 +953,8 @@ gap: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
     font-size: 18px;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateX(20px);
+    transition: opacity 0.2s ease, transform 0.1s ease;
     z-index: 999999999;
     width: 400px;
     height: 100px;
@@ -928,7 +965,7 @@ gap: 10px;
 }
 .catalog-popup.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 /* Chức năng xoá tất cả sản phẩm */
@@ -956,6 +993,15 @@ gap: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     z-index: 1000; /* Đặt bảng thông báo lên trên lớp phủ */
     text-align: center;
+    width: 30vw;
+    background-color: #fff;
+}
+
+.confirm-popup p{
+    font-size: 20px;
+    font-family: cursive;
+    color: red;
+    margin-bottom: 10px;
 }
 
 .confirm-popup button {
@@ -969,11 +1015,13 @@ gap: 10px;
 #confirmYesBtn {
     background-color: #28a745;
     color: #fff;
+    width: 70px;
 }
 
 #confirmNoBtn {
     background-color: #dc3545;
     color: #fff;
+    width: 70px;
 }
 
 /* Thông báo thành công */
