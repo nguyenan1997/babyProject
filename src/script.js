@@ -1,4 +1,4 @@
-const API = {
+export const API = {
     home: [
         {
             title: "Trang Chủ",
@@ -883,6 +883,7 @@ const API = {
         }
     ]
 };
+
 let allSlide = [];
 let contentSlide = [];
 let allContentOfHotSaleProduct = [];
