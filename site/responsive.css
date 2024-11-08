@@ -29,7 +29,7 @@
     flex-wrap: wrap;
   }
   .main-10-PaymentMethod{
-    flex: 1 0 calc(50% - 10px);
+    flex: 1 0 calc(33.33% - 10px);
   }
   .footer-head{
     flex-wrap: wrap;
@@ -49,6 +49,13 @@
 
   .main-9-container-tab p{
     font-size: 18px;
+  }
+
+  .main-10-PaymentMethod-right p:first-child{
+    font-size: 90%;
+  }
+  .main-10-PaymentMethod-right p:nth-child(2){
+    font-size: 90%;
   }
 }
 
@@ -96,7 +103,7 @@
     flex-wrap: wrap;
   }
   .main-10-PaymentMethod{
-    flex: 1 0 calc(50% - 10px);
+    gap: 30px;
   }
 
   .footer-head{
@@ -225,8 +232,9 @@
 
   .main-9-container-tab {
     flex: 1 0 calc(50% - 5px);
-    flex-direction: row;
+    flex-direction: column;
     padding: 15px 20px;
+    gap: 0;
   }
 
   .main-10{
@@ -268,13 +276,22 @@
     width: 10vw;
     height: 10vw;
   }
+  .register{
+    margin: 0 auto;
+  }
+
+  .footer-icon-mxh{
+    margin:  0 auto;
+  }
+  .footer-contact{
+    margin:  0 auto;
+  }
   .main3-flashsale{
     justify-content: space-between;
     gap: 0;
   }
   .footer-bottom{
     flex-wrap: wrap;
-    flex-direction: column;
     gap: 0;
   }
   .footer-head{
@@ -289,6 +306,9 @@
   }
   .search-box2 input{
     width: 100%;
+  }
+  .main-10{
+    margin-bottom: 100px;
   }
 }
 
@@ -516,7 +536,6 @@
 
   .main-9-container-tab {
     flex: 1 0 calc(50% - 10px);
-    flex-direction: row;
   }
 
   .main-9-container-tab img {
@@ -524,7 +543,7 @@
   }
 
   .main-9-container-tab p {
-    font-size: 25px;
+    font-size: 2.4vw;
   }
 
   .footer-head {
@@ -557,9 +576,6 @@
     display: none;
   }
 
-  .main-9-container-tab p {
-    font-size: 21px;
-  }
 
   .main3-flashsale {
     justify-content: space-between;
@@ -571,6 +587,10 @@
 
   .padding-62 {
     padding: 0 15px;
+  }
+
+  .main-10{
+    margin-bottom: 70px;
   }
 }
 
@@ -637,7 +657,6 @@
   }
 
   .button-payment{
-    margin: 0;
     white-space: nowrap;
     font-size: 14px;
     width: auto !important
@@ -653,8 +672,13 @@
   .list-item-added{
     overflow-x: auto;
   }
-  .shoppingCartSideBar p{
-    font-size: 100%;
+  .shoppingCartSideBar{
+    width: 94vw;
+    bottom: 0;
+    right: -34px;
+  }
+  .shoppingCartSideBar>p{
+    font-size: 5vw;
     flex-direction: column;
   }
 
@@ -788,7 +812,13 @@
   }
 
   .wrapper3 .swiper-slide {
-    height: 220px;
+    height: 275px;
+  }
+
+  .payment-total{
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
   }
 
   .main-10-PaymentMethod {
@@ -901,11 +931,31 @@
 
   .main-9-container-tab {
     flex: 1 0 100%;
+    flex-direction: row;
+  }
+  .main-9-container-tab p{
+    font-size: 3.2vw;
   }
 
   .wrapper3 .swiper-slide {
     height: 210px;
   }
+  thead th:nth-child(3){
+    display: none;
+  }
+  .tableBodySideBar tr td:nth-child(3){
+    display: none;
+  }
+
+  .product-info .text-ellipsis p{
+    display: block;
+    font-size: 12px;
+    text-overflow: ellipsis;
+  }
+  .tableHeadSideBar{
+    display: none !important
+  }
+
 }
 
 @media only screen and (max-width: 426px) {
@@ -940,8 +990,17 @@
     align-items: center;
   }
 
+  .infor-product-head div{
+    top: 0;
+    left: 0;
+  }
+
   .main-2-right .infor-product-head img {
-    width: 60%;
+    width: 100%;
+  }
+
+  .main-6-right-slide .infor-product-head img{
+    width: 100%;
   }
 
   .main-6-left-bottom-price {
@@ -976,15 +1035,6 @@
     width: 90%;
     font-size: 15px;
   }
-
-
-  /* Ô tìm kiếm nổi bên dưới navbar */
-
-
-
-
-
-
   .padding-62 {
     padding: 0 8px;
   }
@@ -1004,7 +1054,12 @@
   }
 
   .shoppingCartSideBar {
-    width: 80vw;
+    width: 96vw;
+    right: -40px;
+  }
+
+  .payment-total>span{
+    font-size: 13px;
   }
 }
 
@@ -1048,7 +1103,7 @@
   }
 
   .navbar {
-    padding: 0 7px;
+    padding: 0 10px;
   }
 
   .padding-62 {
@@ -1077,9 +1132,9 @@
   }
 
   .shoppingCartSideBar {
-    width: 80vw;
-    top: -117px;
-    max-height: 380px;
+    width: 99vw;
+    max-height: 500px;
+    right: -47px;
   }
 
   .list-item-added {
@@ -1090,6 +1145,22 @@
     width: 320px;
     right: 5px;
   }
+
+  .text-ellipsis{
+    font-size: 13px;
+  }
+
+  .quantity-control button{
+    background-color: unset;
+    color: black;
+    padding: 5px 0px;
+  }
+
+  .button-payment{
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
 
 }
 
@@ -1110,6 +1181,11 @@
 .main-1{
   margin-top: 20px;
 }
+.infor-product-head div {
+  font-size: 12px;
+  top: -14px;
+  width: 33px;
+}
 
   .navbar {
     gap: 20px;
@@ -1118,7 +1194,7 @@
     left: 0;
     right: 0;
     z-index: 26;
-    padding: 0 5px;
+    padding: 0 10px;
   }
 
   .topnav a {
@@ -1132,12 +1208,6 @@
   .main-5-head span {
     font-size: 20px;
     font-weight: 600;
-  }
-
-  .shoppingCartSideBar {
-    width: 80vw;
-    top: -100px;
-    max-height: 380px;
   }
 
   .topnav {

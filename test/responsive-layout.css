@@ -1,93 +1,106 @@
-.sidenav {
-  height: 100%; /* 100% chiều cao */
-  width: 0; /* Bắt đầu với chiều rộng 0 */
-  position: fixed; /* Đặt vị trí cố định */
-  z-index: 1; /* Nằm trên cùng */
-  top: 0; /* Đỉnh trang */
-  left: 0; /* Bên trái */
-  background-color: #111; /* Màu nền đen */
-  overflow-x: hidden; /* Ẩn cuộn ngang */
-  padding-top: 60px; /* Đệm 60px từ trên cùng */
-  transition: 0.5s; /* Hiệu ứng chuyển tiếp 0.5 giây */
+/* Cấu trúc cơ bản */
+body {
+  font-family: Arial, sans-serif;
 }
 
-.sidenav a {
-  padding: 8px 8px 8px 32px; /* Đệm cho liên kết */
-  text-decoration: none; /* Không gạch chân */
-  font-size: 25px; /* Kích thước chữ */
-  color: #818181; /* Màu chữ */
-  display: block; /* Đảm bảo liên kết chiếm toàn bộ chiều rộng */
-  transition: 0.3s; /* Hiệu ứng chuyển tiếp cho liên kết */
+.cart-icon {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  z-index: 1001;
 }
 
-.sidenav a:hover, .offcanvas a:focus {
-  color: #f1f1f1; /* Màu chữ khi hover */
-}
-
-.sidenav .closebtn {
+.cart-count {
   position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
-
-
-#main {
-  transition: margin-left .5s; /* Chuyển tiếp cho lề trái */
-  padding: 20px;
-  overflow: hidden;
-  width: 100%; /* Chiều rộng đầy đủ */
-}
-
-.topnav {
-  background-color: #333; /* Màu nền cho thanh điều hướng */
-  overflow: hidden; /* Ẩn cuộn */
-}
-
-.topnav a {
-  float: left; /* Nối trái */
-  display: block;
-  color: #f2f2f2; /* Màu chữ */
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.topnav a:hover {
-  background-color: #ddd; /* Màu nền khi hover */
-  color: black; /* Màu chữ khi hover */
-}
-
-.topnav a.active {
-  background-color: #4CAF50; /* Màu nền cho liên kết đang hoạt động */
-  color: white; /* Màu chữ cho liên kết đang hoạt động */
-}
-
-
-@media screen and (max-height: 450px) {
-  .sidenav { padding-top: 15px; }
-  .sidenav a { font-size: 18px; }
-}
-
-
-a svg {
-  transition: all .5s ease;
-  &:hover {
-      transform: rotate(180deg; /* Lỗi cú pháp: Đổi từ #transform thành transform */
-  }
-}
-
-#ico {
-  display: none; /* Ẩn phần tử có ID là ico */
-}
-
-.menu {
-  background: #000;
-  display: none; /* Ẩn menu */
+  top: -5px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
   padding: 5px;
-  width: 320px;
-  @include border-radius(5px);
-  transition: all 0.5s ease; /* Lỗi cú pháp: Đổi từ #transition thành transition */
+  font-size: 14px;
+}
+
+/* Giỏ hàng Modal */
+.cart-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.cart-content {
+  background: white;
+  padding: 15px;
+  width: 90%;
+  max-width: 375px; /* Giới hạn chiều rộng cho màn hình 375px */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.cart-summary {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.checkout-button {
+  width: 100%;
+  padding: 12px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.close-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+/* Responsive Layout cho màn hình nhỏ */
+@media screen and (max-width: 375px) {
+  .cart-content {
+    width: 100%;
+    max-width: 375px;
+  }
+
+  .cart-item {
+    font-size: 12px; /* Thu nhỏ font-size để phù hợp với màn hình nhỏ */
+  }
+
+  .checkout-button {
+    font-size: 14px; /* Thu nhỏ chữ nút thanh toán */
+  }
+
+  .cart-summary p {
+    font-size: 14px;
+  }
+
+  .cart-icon {
+    top: 10px;
+    right: 10px;
+  }
 }

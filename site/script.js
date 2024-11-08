@@ -1149,6 +1149,7 @@ function renderMain6Right() {
 renderMain6Right();
 
 const heartNonColorAll = document.querySelectorAll('.heart-nonColor');
+console.log(heartNonColorAll)
 const heartRedAll = document.querySelectorAll('.heart-red');
 heartNonColorAll.forEach((heartNonColor, index) => {
     // Thêm sự kiện click cho trái tim rỗng
@@ -1416,7 +1417,9 @@ function renderList() {
                 <td>
                     <div class="product-info">
                         <img src="${product.img}" alt="${product.title}" class="product-image"/>
-                        <span class="text-ellipsis">${product.title}</span>
+                        <span class="text-ellipsis">
+                        ${product.title}
+                        </span>
                     </div>
                 </td>
                 <td>
@@ -1609,7 +1612,10 @@ function renderListSideBar() {
                 <td>
                     <div class="product-info">
                         <img src="${product.img}" alt="${product.title}" class="product-image"/>
-                        <span class="text-ellipsis">${product.title}</span>
+                        <span class="text-ellipsis">
+                            ${product.title}
+                            <p>Giá: ${"₫" + new Intl.NumberFormat('vi-VN').format(parseFloat(product.price.replace(/\./g, '')) * product.countQuantity)}</p>
+                        </span>
                     </div>
                 </td>
                 <td>
@@ -1796,18 +1802,25 @@ function buttonSwitches() {
 function buttonSwitchesSideBar() {
     let containerListitem = document.querySelector('.shoppingCartSideBar');
     let containerListitemHeader = document.querySelector('.shoppingCart');
+    let overlayAll = document.querySelectorAll('.overlayFullScreen');
 
     if (containerListitem.classList.contains('hide')) {
         containerListitem.classList.remove('hide');
         containerListitem.classList.add('show');
         containerListitemHeader.classList.remove('show')
         containerListitemHeader.classList.add('hide');
+        overlayAll.forEach((value) => {
+            value.style.display = "block"
+        })
     }
     else {
         containerListitem.classList.remove('show');
         containerListitem.classList.add('hide');
         containerListitemHeader.classList.remove('show');
         containerListitemHeader.classList.add('hide');
+        overlayAll.forEach((value) => {
+            value.style.display = "none"
+        })
     }
 }
 function buttonSwitches2() {
@@ -1822,31 +1835,27 @@ function buttonSwitches2() {
     }
 }
 const overlayAll = document.querySelectorAll('.overlayFullScreen');
-// function buttonNavbar() {
-//     if (overlay.style.display === 'none' || overlay.style.display === '') {
-//         overlay.style.display = 'block';
-//     }
-//     else {
-//         overlay.style.display = 'none';
-//         headerSearch.style.display = 'none'
-//     }
-// }
-// function handleClickOverLay() {
-//     if (overlay.style.display === 'block') {
-//         overlay.style.display = 'none';
-//         headerSearch.style.display = 'none'
-//     }
-// }
 // Sự kiên này dùng để render ngay sau khi cây DOM của trang HTML được tạo
 document.addEventListener('DOMContentLoaded', function () {
     renderList();
     renderListSideBar()
 })
 
+overlayAll.forEach((value) => {
+    value.addEventListener('click', () => {
+        const shoppingCartSideBar = document.querySelector('.shoppingCartSideBar');
+        if (shoppingCartSideBar.classList.contains("show")) {
+            shoppingCartSideBar.classList.remove("show");
+            shoppingCartSideBar.classList.add("hide"); // Hide the sidebar
+             // Hide the sidebar
+        }
+    });
+});
+
 // Render ra danh sách navbar cho phần responsive
 function renderNav() {
-    let sideNav = document.querySelectorAll('.sidenav');
-    let buttonLogOut = document.createElement('button');
+    const sideNav = document.querySelectorAll('.sidenav');
+    const buttonLogOut = document.createElement('button');
     buttonLogOut.innerHTML = `<i class="fas fa-sign-out-alt"></i> Log Out`;
     buttonLogOut.classList.add('logout-button');
 
@@ -1877,29 +1886,19 @@ function openNav() {
             value.style.display = 'none';
         }
     })
-    // if (overlay.style.display === 'none' || overlay.style.display === '') {
-    //     overlay.style.display = 'block';
-    // } else {
-    //     overlay.style.display = 'none';
-    // }
 }
 
 function closeNav() {
     const sideNav = document.querySelectorAll(".sidenav");
-
     sideNav.forEach((value) => {
         value.style.width = "0"
     })
-
     // Ẩn overlay nếu nó đang hiển thị
     overlayAll.forEach((value)=>{
         if (value.style.display === 'block') {
             value.style.display = 'none';
         }
     })
-    // if (overlay.style.display === 'block') {
-    //     overlay.style.display = 'none';
-    // }
 }
 
 // Hàm hiển thị catalog thông báo
