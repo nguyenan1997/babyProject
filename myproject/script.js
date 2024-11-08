@@ -1,4 +1,4 @@
-export const API = {
+const API = {
     home: [
         {
             title: "Trang Chủ",
@@ -1150,7 +1150,6 @@ function renderMain6Right() {
 renderMain6Right();
 
 const heartNonColorAll = document.querySelectorAll('.heart-nonColor');
-console.log(heartNonColorAll)
 const heartRedAll = document.querySelectorAll('.heart-red');
 heartNonColorAll.forEach((heartNonColor, index) => {
     // Thêm sự kiện click cho trái tim rỗng
@@ -1288,7 +1287,7 @@ function renderMain2Right(realindex) {
             let b = convertCurrencyString(value.price);
             return `<div class="info-product">
                         <div class="infor-product-head">
-                            <img src=${value.img} alt="">
+                            <a href="#"><img src=${value.img} alt=""></a>
                             <div>-${Math.round((b - a) / b * 100)}%</div>
                             <p class="heart-main3">
                                 <i class="fa-regular fa-heart heart-nonColor" data-product-id="${index + 1}"></i>
@@ -2096,3 +2095,5 @@ function openPopup(idproduct,name) {
     buttonAddListItem(idproduct,name)
     closePopup(); // Đóng bảng sau khi thêm vào giỏ hàng
   }
+
+
