@@ -1,0 +1,341 @@
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  /* Áp dụng transition mượt mà cho mọi thuộc tính */
+}
+
+.info-user-fixed-right {
+  position: fixed;
+  right: 0;
+  z-index: 9999;
+  top: 60%;
+  flex-direction: column;
+  background-color: #73A875;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  gap: 10px;
+}
+
+.info-user-fixed-right span {
+  padding: 2px 7px;
+  border-left: none;
+}
+
+.info-user-fixed-right span svg {
+  width: 30px;
+  height: 30px;
+}
+
+.info-user-fixed-right span:active {
+  background-color: #ccc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+
+/* Overlay */
+.confirmation-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.table {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.tableHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tableBody {
+  margin-top: 10px;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+}
+
+.product-info .text-ellipsis p{
+  display: none;
+}
+
+.product-image {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.quantity-control {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-input,
+.quantity-input-sidebar {
+  width: 40px;
+  /* Kích thước ô nhập số lượng */
+  height: 30px;
+  /* Chiều cao ô nhập */
+  text-align: center;
+  /* Căn giữa nội dung */
+  margin: 0 5px;
+  /* Khoảng cách giữa các nút và ô nhập */
+  border: 1px solid #ccc;
+  /* Đường viền cho ô nhập */
+  border-radius: 5px;
+  /* Bo góc cho ô nhập */
+}
+
+.btn-decrease:hover,
+.btn-increase:hover {
+  background-color: #ffa14e;
+  /* Màu nền khi hover */
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  /* Màu nền cho lớp overlay */
+  z-index: 999;
+  /* Đưa lớp overlay lên trên cùng */
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  /* Màu nền cho modal */
+  padding: 20px;
+  border-radius: 5px;
+  /* Bo góc cho modal */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  /* Đổ bóng cho modal */
+  z-index: 1000;
+  /* Đưa modal lên trên lớp overlay */
+}
+
+
+
+.product-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Màu nền tối hơn */
+  z-index: 99999999;
+}
+
+.product-overlay-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Màu nền tối hơn */
+  z-index: 99999999;
+}
+
+.confirmation-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #d9d2d2;
+  padding: 50px 20px;
+  border-radius: 10px;
+  z-index: 1000;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  /* Đổ bóng cho modal */
+  width: 40vw;
+
+  text-align: center;
+  /* Căn giữa nội dung */
+}
+
+.confirmation-modal p {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  /* Màu chữ dễ đọc */
+  font-family: 'Montserrat';
+}
+
+.confirmation-modal button {
+  background-color: #007BFF;
+  /* Màu xanh cho nút */
+  color: #fff;
+  /* Màu chữ trắng */
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  /* Hiệu ứng chuyển màu khi hover */
+  margin: 0 5px;
+  /* Cách đều giữa các nút */
+  font-family: 'Montserrat';
+  font-size: 20px;
+  width: 90px;
+}
+
+.confirmation-modal #confirmYesDelete {
+  background-color: red;
+ 
+}
+
+.confirmation-modal button:hover {
+  background-color: #0056b3;
+  /* Màu tối hơn khi hover */
+}
+
+.confirmation-modal button:focus {
+  outline: none;
+  /* Ẩn viền khi nút được chọn */
+}
+
+
+
+.payment-button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.totalAmount {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-payment {
+  padding: 10px 20px;
+  background-color: #28a745;
+  /* Màu xanh lá */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-payment:hover {
+  background-color: #218838;
+  /* Màu xanh đậm hơn khi hover */
+}
+
+
+.exclamation-mark {
+  font-size: 40px;
+  /* Kích thước lớn của dấu chấm than */
+  font-weight: bold;
+  color: #f44336;
+  /* Màu đỏ cảnh báo */
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Nút giỏ hàng */
+.button-cart {
+  font-size: 24px;
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Bảng thông báo */
+.popup-box {
+  /* Ẩn đi ban đầu */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30vw;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  padding: 20px;
+  text-align: center;
+}
+
+.popup-box p{
+  margin-bottom: 10px;
+  font-family: cursive;
+  font-size: 18px;
+  color: red;
+}
+
+/* Overlay để làm mờ nền */
+.background-overlay {
+  /* Ẩn đi ban đầu */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Nút Yes và No */
+.popup-button {
+  padding: 10px 15px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 70px;
+  font-family: cursive;
+  font-size: 17px;
+}
+
+.confirm-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.cancel-button {
+  background-color: #f44336;
+  color: white;
+}
+
+
+.popup-header {
+  font-size: 30px;
+  font-family: cursive;
+  margin-bottom: 10px;
+  color: darkgoldenrod;
+}

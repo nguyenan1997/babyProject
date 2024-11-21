@@ -1,0 +1,775 @@
+/* Header */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x:hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f6f6;
+}
+
+.img-banner {
+    display: flex;
+    width: 100%;
+    object-fit: cover;
+}
+
+.header-green{
+    background-color: #4CAF50;
+    display: block;
+}
+
+.container-header-search{
+    margin: 0 auto;
+}
+.input-search2{
+    display: none;
+}
+
+.logout-button {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 20px; /* Khoảng cách bên trong nút */
+    background-color: #ceaaad; /* Màu đỏ cho nút log out */
+    color: rgb(215, 18, 18); /* Màu chữ trắng */
+    border: none; /* Không viền */
+    cursor: pointer; /* Đổi con trỏ khi hover */
+    display: flex; /* Sử dụng flexbox để căn chỉnh biểu tượng và chữ */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.logout-button i {
+    margin-right: 8px; /* Khoảng cách giữa biểu tượng và chữ */
+}
+
+.logout-button:hover {
+    background-color: #c82333; /* Màu khi hover */
+}
+
+.nav-search{
+    display: none;
+}
+.search-popup{
+    display: none;
+}
+.navbar-icon{
+    display: none;
+}
+.header-search {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding: 0 4%;
+    justify-content: space-between;
+}
+
+
+
+.numberCall{
+    font-size: 24px;
+    font-family: Cherry Bomb One, sans-serif;
+   color: #3E4095;
+    cursor: pointer;
+}
+/* Ảnh ABC */
+.search-img {
+    width: 4vw;
+    height: auto;
+    cursor: pointer;
+}
+
+
+
+.container-logo2{
+    display: none;
+}
+
+.input-search {
+    width: 50%;
+    height: auto;
+    position: relative;
+}
+.input-search2{
+    display: none;
+}
+
+.input {
+    width: 100%;
+    height: 51px;
+    outline: none;
+    border-top-left-radius: 20px;
+    border: none;
+    padding: 0 20px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.input::placeholder {
+    font-size: 16px;
+    font-family: Comfortaa;
+}
+
+.background-color-linknav{
+    background-color: white;
+}
+
+.button-search {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 130px;
+    height: 51px;
+    background-color: #D0E63A;
+    border: none;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Comfortaa;
+    color: #3E4095;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
+.button-search:hover {
+    scale: 1.11;
+    transition: background-color 0.4s, transform 0.3s;
+}
+
+.favarites {
+    display: flex;
+    gap: 10px;
+}
+
+.favarites img{
+   width: 3.5vw;
+   cursor: pointer;
+}
+
+.info-user {
+    display: flex;
+}
+
+.info-user span {
+    height: auto;
+    border-left: 1px solid #74D778;
+    padding: 0 24px;
+    cursor: pointer;
+}
+
+.info-user span svg{
+    width: 3vw;
+}
+
+.info-user span svg:hover {
+    transform: scale(1.11);
+    transition: background-color 0.4s, transform 0.3s;
+}
+
+.shopping {
+    position: relative;
+    cursor: pointer;
+}
+.shoppingSideBar {
+    position: relative;
+    cursor: pointer;
+}
+.shopping svg:active{
+    scale: 1.2;
+}
+
+.shoppingCart {
+    position: absolute;
+    width: 570px;
+    height: auto;
+    background-color: #a6f5ff;
+    top: calc(100% + 5px);
+    right: -21px;
+    z-index: 999;
+    border-radius: 5px;
+    border: 1px dashed #80deea;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    font-family: 'Comic Sans MS', sans-serif;
+}
+
+.shoppingCartSideBar {
+    position: absolute;
+    width: 570px;
+    height: auto;
+    background-color: #a6f5ff;
+    bottom: -134px;
+    right: 0;
+    z-index: 999;
+    border-radius: 5px;
+    border: 1px dashed #80deea;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    font-family: 'Comic Sans MS', sans-serif;
+}
+.container-shopingCart{
+    position: absolute;
+    right: 110%;
+    top: -260%;
+
+}
+
+.shoppingCart p{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Comic Sans MS', sans-serif;
+    color: #415b5a;
+    margin: 10px 0;
+}
+
+.shoppingCartSideBar p{
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Comic Sans MS', sans-serif;
+    color: #415b5a;
+    margin: 10px 0;
+}
+
+
+.shoppingCartSideBar>p{
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Comic Sans MS', sans-serif;
+    color: #415b5a;
+    margin: 10px 0;
+}
+
+.countQuantity{
+    position: absolute;
+    background-color: #dcfc0c;
+    right: 20%;
+    top: 0;
+    width: 22px;
+    height: auto;
+    border-radius: 15px;
+    text-align: center;
+    color: red;
+    font-family: Encode Sans Semi Condensed;
+    font-weight: 600;
+    font-size: 10px;
+    padding: 3px;
+}
+
+.countQuantitySideBar{
+    position: absolute;
+    background-color: #dcfc0c;
+    right: 0;
+    top: 0;
+    width: 22px;
+    height: auto;
+    border-radius: 15px;
+    text-align: center;
+    color: red;
+    font-family: Encode Sans Semi Condensed;
+    font-weight: 600;
+    font-size: 10px;
+    padding: 3px;
+}
+
+.shoppingCart>button{
+    position: sticky;
+    bottom: 0%;
+    width: 100%;
+    height: 40px;
+    border: none;
+    color: red;
+    background-color: unset;
+}
+
+.btn-delete-sidebar{
+    border: none;
+}
+.shoppingCartSideBar>button{
+    position: sticky;
+    bottom: 0%;
+    width: 100%;
+    height: 40px;
+    border: none;
+    font-family: 'Comic Sans MS', sans-serif;
+    background-color: unset;
+}
+
+.shoppingCartSideBar .button-payment{
+    height: 100%;
+}
+.list-item-added{
+    overflow-x: scroll;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.list-item-added:-webkit-scrollbar {
+    display: none;
+}
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+thead th{
+    font-weight: 500;
+    color: #8687a3;
+    white-space: nowrap;
+    font-size: 20px;
+}
+tr span{
+    border-left: none;
+}
+
+
+.tableBody tr{
+    border-bottom: 1px dashed #d7d7d7 ;
+}
+.tableBody tr:hover{
+    background-color: #7be6ff;
+}
+
+.list-item-added table thead{
+    font-size: 0.7vw;
+}
+.tableBody tr td {
+    padding: 11px 6px;
+}
+
+.tableBodySideBar tr td {
+    padding: 11px 6px;
+}
+.tableBodySideBar tr{
+    border-bottom: 1px dashed #d7d7d7;
+}
+.tableBodySideBar tr:hover{
+    background-color: #7be6ff;
+}
+.list-item-added table tbody tr img{
+    width: 25%;
+    border-radius: 50%;
+}
+
+.list-item-added span{
+    color:#3E4095;
+    white-space: nowrap;
+}
+.list-item-added li span:first-child{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+}
+
+.list-item-added img{
+    object-fit: contain;
+    width: 100%;
+}
+.buttonDeleteAllItem{
+    width: 100%;
+    position: static;
+    bottom: 0;
+    z-index: 4;
+    font-family: 'Comic Sans MS', sans-serif;
+    
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+    opacity: 1;
+    transform: translateY(0); /* Trở về vị trí gốc */
+}
+
+.arrow-up {
+    position: absolute;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-bottom: 10px solid #fff;
+    top: -10px;
+    left: 50%;
+    z-index: 999999;
+}
+
+.arrow-upSideBar {
+    position: absolute;
+    border-top: 5px solid transparent; /* Đỉnh mũi tên */
+    border-bottom: 5px solid transparent; /* Đáy mũi tên */
+    border-left: 5px solid #73A875; /* Thân mũi tên (màu) */
+    bottom: 15px;
+    right: -5px;
+    z-index: 999999;
+    display: none;
+}
+
+.list-item-added li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list-item-added li span{
+    border: none
+}
+
+.list-item-added li img{
+    width: 50px;
+    height: 50px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    height: 50px;
+    padding: 0 4%;
+}
+
+.payment-total{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    align-items: center;
+}
+
+.payment-total>span{
+    border-left: none;
+}
+
+.button-payment{
+    width: 30% !important;
+    background-color: #ff4d01;
+    color: white;
+    padding: 12px 20px;
+    font-family: cursive;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-right: 15px;
+}
+
+.button-payment:hover{
+    background-color: #ff6b3c;
+}
+
+.navbar-menu{
+    display: none;
+}
+
+.nav-left {
+    display: flex;
+    gap: 60px;
+}
+
+.link-nav{
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+.nav-left span {
+    font-family: 'Cherry Bomb One';
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-left span:nth-child(2) {
+    color: #1FACA1;
+}
+
+.nav-left span:nth-child(3) {
+    color: red;
+}
+
+.nav-left span:nth-child(4) {
+    color: orange;
+}
+
+.nav-left span:nth-child(5) {
+    color: #1f97ac;
+}
+
+.contact {
+    display: flex;
+    gap: 15px;
+    align-items:baseline;
+    padding-right: 45px;
+}
+.contact :nth-child(2){
+    font-family: Comfortaa;
+}
+
+.shopping-navigation{
+    display: none;
+}
+.more{
+    display: none;
+}
+
+/* Phần CSS navbar Menu */
+.sidenav {
+    height: 100%; /* 100% chiều cao */
+    width: 0; /* Bắt đầu với chiều rộng 0 */
+    position: fixed; /* Đặt vị trí cố định */
+    z-index: 9999999; /* Nằm trên cùng */
+    top: 0; /* Đỉnh trang */
+    left: 0; /* Bên trái */
+    background-color: #efe1e1; /* Màu nền đen */
+    overflow-x: hidden; /* Ẩn cuộn ngang */
+    padding-top: 60px; /* Đệm 60px từ trên cùng */
+    transition: 0.3s; /* Hiệu ứng chuyển tiếp 0.5 giây */
+  }
+  
+  .sidenav a {
+    padding: 8px 8px 8px 32px; /* Đệm cho liên kết */
+    text-decoration: none; /* Không gạch chân */
+    font-size: 20px; /* Kích thước chữ */
+    color: #53b125; /* Màu chữ */
+    display: block; /* Đảm bảo liên kết chiếm toàn bộ chiều rộng */
+    transition: 0.3s; /* Hiệu ứng chuyển tiếp cho liên kết */
+    font-family: 'Cherry Bomb One';
+    white-space: nowrap;
+  }
+  
+  .sidenav a:hover, .offcanvas a:focus {
+    color: #c39f9f; /* Màu chữ khi hover */
+  }
+  
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  
+  
+  #main {
+    transition: margin-left .5s; /* Chuyển tiếp cho lề trái */
+    padding: 20px;
+    overflow: hidden;
+    width: 100%; /* Chiều rộng đầy đủ */
+  }
+  
+  .topnav {
+    overflow: hidden; /* Ẩn cuộn */
+    width: 45px;
+    height: 45px;
+  }
+  
+  .topnav a {
+    float: left; /* Nối trái */
+    display: block;
+    color: #f2f2f2; /* Màu chữ */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    color: black; /* Màu chữ khi hover */
+  }
+  
+  .topnav a.active {
+    background-color: #4CAF50; /* Màu nền cho liên kết đang hoạt động */
+    color: white; /* Màu chữ cho liên kết đang hoạt động */
+  }
+  .topnav a svg path{
+    stroke: #1FACA1;
+    stroke-width: 3;
+  }
+  
+  
+  @media screen and (max-height: 450px) {
+    .sidenav { padding-top: 15px; }
+    .sidenav a { font-size: 18px; }
+  }
+  
+  
+  a svg {
+    transition: all .5s ease;
+    &:hover {
+        transform: rotate(180deg); /* Lỗi cú pháp: Đổi từ #transform thành transform */
+    }
+  }
+  
+  #ico {
+    display: none; /* Ẩn phần tử có ID là ico */
+  }
+  
+  .menu {
+    background: #ded3d3;
+    display: none; /* Ẩn menu */
+    padding: 5px;
+    width: 320px;
+    @include border-radius(5px);
+    transition: all 0.5s ease; /* Lỗi cú pháp: Đổi từ #transition thành transition */
+  }
+
+
+  .text-ellipsis {
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    width: 150px; /* Đặt chiều rộng cho phần tử */
+    display: inline-block; /* Sử dụng inline-block để phần tử vẫn giữ được chiều rộng */
+}
+
+.product-info {
+    display: flex; /* Để sắp xếp hình ảnh và tiêu đề ngang nhau */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.product-image {
+    width: 50px; /* Kích thước hình ảnh */
+    height: 50px; /* Kích thước hình ảnh */
+    margin-right: 10px; /* Khoảng cách giữa hình ảnh và tiêu đề */
+}
+
+.quantity-control {
+    display: flex; /* Sử dụng flexbox để sắp xếp ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.quantity-control button {
+    background-color: #ffcd85;
+  border: none;
+  padding: 5px 10px;
+  font-size: 16px;
+  color: #fff;
+  cursor: pointer;
+  height: 30px;
+  border-radius: 6px;
+  margin: 0 5px;
+  transition: background-color 0.3s;
+}
+
+.shoppingCart .btn-delete{
+    padding: 5px 5px;
+    background-color: unset;
+    font-size: 16px;
+    color: #d61b2a;
+    font-family:'Comic Sans MS', sans-serif;
+    border: none;
+}
+
+.btn-delete-sidebar{
+    background-color: unset;
+}
+.quantity{
+    padding: 0 !important
+}
+
+/* Container for the sidebar */
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 88%;
+    transform: translateY(-50%);
+    background-color: #f8e4b5; /* màu nền */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 99999999;
+}
+
+/* Styling each icon */
+.icon {
+    display: block;
+    margin: 15px 0;
+    padding: 0 3px;
+}
+
+.icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.icon.back-to-top{
+    display: flex;
+    justify-content: center;
+}
+
+/* Back to top button specific styling */
+.back-to-top img {
+    background-color: #4a90e2; /* màu xanh cho nút back to top */
+}
+
+.messenger img {
+    background-color: #0099ff; /* màu xanh Messenger */
+}
+
+.zalo img {
+    background-color: #0066cc; /* màu xanh Zalo */
+}
+
+.more-button-search {
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .more-button-search:active{
+    background-color: rgba(33, 176, 176,0.8);
+  }
+  
+  .language-menu {
+    display: none; /* Ẩn menu ban đầu */
+    position: absolute;
+    top: 75%; /* Đặt ngay dưới nút "more" */
+    right: 0; /* Canh phải với nút "more" */ 
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    background-color: rgba(98, 52, 52, 0.5)
+  }
+  
+
+  .language-menu img{
+    width: 40px;
+    height: 40px;
+  }
+  
+  .language-option {
+    padding: 8px 16px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .language-option:hover {
+    background-color: rgb(10, 118, 118);
+  }
+  
+  .more-button-search{
+    display: none;
+  }
+
+  /* Đặt kích thước cho slider */
+  .custom-swiper-container {
+    width: 100%;
+    height: 300px;
+  }
+  .custom-swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
