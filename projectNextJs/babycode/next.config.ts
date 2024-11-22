@@ -1,11 +1,10 @@
 // next.config.ts
 import type { NextConfig } from 'next';
-
 const nextConfig: NextConfig = {
   reactStrictMode: true,
-  webpack(config, { dev }) {
-    if (!dev) {
-      // Tắt source maps cho môi trường production
+  webpack(config, { isServer }) {
+    // Tắt source maps trong môi trường phát triển
+    if (!isServer) {
       config.devtool = false;
     }
     return config;

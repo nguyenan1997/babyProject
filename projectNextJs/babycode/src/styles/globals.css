@@ -8,6 +8,10 @@
   /* Áp dụng transition mượt mà cho mọi thuộc tính */
 }
 
+a{
+  text-decoration: none;
+}
+
 .info-user-fixed-right {
   position: fixed;
   right: 0;

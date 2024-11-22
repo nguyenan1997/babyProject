@@ -2,6 +2,7 @@
 'use client'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
+import Link from 'next/link';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -13,8 +14,8 @@ import { SwiperOptions } from 'swiper/types';
 import { useState } from 'react';
 import { useCart } from '@/hooks/Context/CartContext';
 import { buttonAddListItem } from '../ComponentCardProduct/ComponentCartProduct';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import CSS mặc định
 
 interface Product {
     id: number;
@@ -32,13 +33,23 @@ interface SwiperComponentProps {
     loop?: boolean;
     data?: Array<any>;
     type?: 'groupProducts' | 'slidemain3' | 'imagesbanner';
-    setSharedData?: (index: number) => void
+    setSharedData?: any
 }
-const SwiperComponent: React.FC<SwiperComponentProps> = ({ gap = 0, slidesPerView = 6, loop = true, data = [], type, setSharedData }) => {
+const SwiperComponent: React.FC<SwiperComponentProps> = ({ gap = 0, slidesPerView = 6, loop = true, data = [], type, setSharedData = () => { } }) => {
     const { cart, setCart } = useCart();
     const [activeSlide, setActiveSlide] = useState<Number>(0);
     const [liked, setLiked] = useState(false);
-    const notify = () => toast("Wow so easy!");
+    const notify = () => {
+        toast.success("✨ Sản phẩm bạn chọn đã được thêm vào giỏ hàng 🎉", {
+            position: "bottom-right", // Vị trí góc dưới bên phải
+            autoClose: 3000, // Tự động đóng sau 3 giây
+            hideProgressBar: false, // Hiển thị thanh tiến trình
+            closeOnClick: true, // Đóng khi nhấn vào
+            pauseOnHover: true, // Tạm dừng khi di chuột
+            draggable: true, // Cho phép kéo toast
+            progressStyle: { background: "#ff6f61" }, // Đổi màu progress bar
+        });
+    };
     const handleToggleHeart = () => {
         setLiked(!liked);
     };
@@ -127,7 +138,7 @@ const SwiperComponent: React.FC<SwiperComponentProps> = ({ gap = 0, slidesPerVie
                                         </span>
                                     </div>
                                 </div>
-                                <button className="button-main3" onClick={() => { buttonAddListItem(item, setCart, cart); notify }}>
+                                <button className="button-main3" onClick={() => { buttonAddListItem(item, setCart, cart); notify() }}>
                                     <svg
                                         width={27}
                                         height={27}
@@ -169,14 +180,15 @@ const SwiperComponent: React.FC<SwiperComponentProps> = ({ gap = 0, slidesPerVie
                                     </svg>
                                     <span>Mua Ngay</span>
                                 </button>
-                                <ToastContainer />
                             </div>
                             <div className="slider-main3-bottom">
-                                <p
-                                    style={{ fontFamily: "Montserrat", fontWeight: 600, color: "#3E4095" }}
-                                >
-                                    {item.title}
-                                </p>
+                                <Link href="/DetailProduct">
+                                    <p
+                                        style={{ fontFamily: "Montserrat", fontWeight: 600, color: "#3E4095" }}
+                                    >
+                                        {item.title}
+                                    </p>
+                                </Link>
                                 <p style={{ fontFamily: "Montserrat", color: "#3E4095", fontSize: 16 }}>
                                     {item.price} VNĐ
                                 </p>
@@ -193,7 +205,7 @@ const SwiperComponent: React.FC<SwiperComponentProps> = ({ gap = 0, slidesPerVie
                                     </span>
                                 </p>
                             </div>
-                            
+
                         </div>
                     )}
                     {type === 'imagesbanner' && (
@@ -201,7 +213,7 @@ const SwiperComponent: React.FC<SwiperComponentProps> = ({ gap = 0, slidesPerVie
                     )}
                 </SwiperSlide>
             ))}
-           
+
         </Swiper >
     );
 };

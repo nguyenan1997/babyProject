@@ -69,7 +69,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-
     <html lang="en">
       <Head>
         <meta charSet="UTF-8" />

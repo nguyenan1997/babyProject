@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useCart } from "@/hooks/Context/CartContext";
 import { FaCheckCircle } from "react-icons/fa"; // Biểu tượng từ FontAwesome
 
-const ComponentCartListItemSideBar = ({ switches, setQuantity }: { switches: boolean; setQuantity: any }) => {
+const ComponentCartListItemSideBar = ({ setQuantity }: { switches: boolean; setQuantity: any }) => {
   const { cart, setCart, switchesListItem, setSwitchesListItem, handleShowCart } = useCart();
   const [showDeleteConfirmation, setShowDeleteConfirmation] = useState<boolean>(false);
   const [productToDelete, setProductToDelete] = useState<number | null>(null);
@@ -54,8 +54,6 @@ const ComponentCartListItemSideBar = ({ switches, setQuantity }: { switches: boo
   const cancelDelete = () => {
     setShowDeleteConfirmation(false);
   };
-
- 
 
   // Hàm cập nhật giỏ hàng trong localStorage khi cart thay đổi
   useEffect(() => {

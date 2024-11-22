@@ -2,9 +2,25 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons'; // Trái tim đầy
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons'; // Trái tim rỗng
+import { buttonAddListItem } from "@/common/ComponentCardProduct/ComponentCartProduct";
+import { useCart } from "@/hooks/Context/CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import CSS mặc định
 
 const ComponentMain6Left = ({ APIdata }: any) => {
     const [liked, setLiked] = useState(false);
+    const { cart, setCart } = useCart();
+    const notify = () => {
+        toast.success("✨ Sản phẩm bạn chọn đã được thêm vào giỏ hàng 🎉", {
+            position: "bottom-right", // Vị trí góc dưới bên phải
+            autoClose: 3000, // Tự động đóng sau 3 giây
+            hideProgressBar: false, // Hiển thị thanh tiến trình
+            closeOnClick: true, // Đóng khi nhấn vào
+            pauseOnHover: true, // Tạm dừng khi di chuột
+            draggable: true, // Cho phép kéo toast
+            progressStyle: { background: "#ff6f61" }, // Đổi màu progress bar
+        });
+    };
 
     const handleToggleHeart = () => {
         setLiked(!liked); // Đảo ngược trạng thái yêu thích
@@ -63,9 +79,9 @@ const ComponentMain6Left = ({ APIdata }: any) => {
                             textDecoration: "line-through"
                         }}
                     >
-                        {APIdata.productHotLest.prePrice} VNĐ
+                        {APIdata.productHotLest.prevPrice} VNĐ
                     </span>
-                    <button onclick="openPopup(${API.HotSellingProducts.productHotLest.id},'HotSellingProducts')">
+                    <button onClick={() => {buttonAddListItem(APIdata.productHotLest, setCart, cart); notify()}}>
                         <svg
                             width={27}
                             height={27}

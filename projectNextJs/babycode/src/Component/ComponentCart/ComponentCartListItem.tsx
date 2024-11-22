@@ -9,7 +9,7 @@ const ComponentCartListItem = ({ setQuantity }: { setQuantity: any }) => {
   const [showDeleteConfirmationAll, setShowDeleteConfirmationAll] = useState<boolean>(false);
   const [productToDelete, setProductToDelete] = useState<number | null>(null);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false); // Hiển thị thông báo thành công
-
+  const [valueQuantityInput, setValueQuantityInput] = useState<number>();
   // Tính tổng số lượng sản phẩm trong giỏ hàng
   const totalQuantity = cart.reduce((accumulator, product) => accumulator + product.countQuantity, 0);
 
@@ -27,6 +27,7 @@ const ComponentCartListItem = ({ setQuantity }: { setQuantity: any }) => {
   const handleQuantityChange = (index: number, delta: number) => {
     const newCart = [...cart];
     const newQuantity = newCart[index].countQuantity + delta;
+    // setValueQuantityInput(valueQuantityInput + delta)
 
     if (newQuantity > 0) {
       newCart[index].countQuantity = newQuantity;
@@ -36,6 +37,26 @@ const ComponentCartListItem = ({ setQuantity }: { setQuantity: any }) => {
       handleDeleteProduct(index);
     }
   };
+
+  const handleQuantityChangeEnter = (index: number, newQuantity: number) => {
+    const newCart = [...cart];
+
+    if (newQuantity > 0) {
+      newCart[index].countQuantity = newQuantity;
+      setCart(newCart);
+      localStorage.setItem("cart", JSON.stringify(newCart));
+    } else {
+      handleDeleteProduct(index);
+    }
+  };
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>, index: number) => {
+    if (event.key === "Enter") {
+      const newQuantity = event.currentTarget.value.trim() === "" ? 0 : parseInt(event.currentTarget.value);
+      handleQuantityChangeEnter(index, newQuantity )
+    }
+  };
+
 
   const handleDeleteProduct = (index: number) => {
     setProductToDelete(index);
@@ -111,8 +132,13 @@ const ComponentCartListItem = ({ setQuantity }: { setQuantity: any }) => {
                           <input
                             type="number"
                             className="quantity-input"
-                            value={value.countQuantity}
+                            value={valueQuantityInput}
                             min={1}
+                            onChange={(e) => {
+                              const inputValue = e.target.value;
+                                setValueQuantityInput(parseInt(inputValue))}
+                            }
+                            onKeyDown={(e) => handleKeyDown(e, index)} // Gọi hàm khi nhấn phím
                           />
                           <button
                             className="btn-increase"

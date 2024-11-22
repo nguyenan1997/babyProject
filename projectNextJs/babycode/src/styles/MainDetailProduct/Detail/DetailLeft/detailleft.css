@@ -1,0 +1,172 @@
+.container-detail-left {
+    flex-direction: 1 0 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 27px;
+}
+
+.directory {
+    width: 100%;
+    border: 1px solid rgba(238, 238, 238, 1);
+    padding: 12px 0;
+}
+
+.headline {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.94px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    border-bottom: 3px solid rgba(238, 238, 238, 1);
+    padding: 0 17px;
+}
+
+.list-directory{
+    padding-left: 9px;
+}
+
+
+.list-directory li {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 11px 0;
+    font-family: Montserrat;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 45px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+}
+
+.list-directory li:hover {
+    scale: 1.05;
+}
+
+.list-directory svg{
+    width: 21px;
+    height: 26.26px;
+}
+
+.list-directory li a {
+    color: rgba(62, 64, 149, 1);
+}
+
+
+.banner {
+    width: 210px;
+    height: 288px;
+}
+
+.banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+.TopSeller {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgba(238, 238, 238, 1);
+}
+
+
+.headline-hotsale {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.94px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: rgba(0, 0, 0, 1);
+    padding: 15px 16px;
+    border-bottom: 1px solid rgba(238, 238, 238, 1);
+}
+
+.list-topSeller {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.product-hotsale {
+    border-bottom: 1px solid rgba(238, 238, 238, 1);
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    padding: 10px;
+}
+
+.product-hotsale .image-product {
+    width: 129.38px;
+    margin: auto;
+    position: relative;
+}
+
+.product-hotsale .image-product img {
+    width: 100%;
+}
+
+.product-hotsale .image-product img:hover{
+    scale: 1.1;
+}
+
+.discount-price {
+    position: absolute;
+    bottom: -5px;
+    right: -24px;
+    font-family: Jost;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20.23px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    background-color: rgba(227, 45, 45, 1);
+    color: rgba(255, 255, 255, 1);
+    padding: 3px 5px;
+}
+
+.contanier-detail-product {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.name-product {
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 17px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: rgba(62, 64, 149, 1);
+    width: 191px;
+    cursor: pointer;
+}
+
+.name-product:hover{
+    color: rgb(37, 39, 134);
+
+}
+
+.price-product {
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 19.5px;
+    text-align: left;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+    color: rgba(0, 0, 0, 1);
+}
+

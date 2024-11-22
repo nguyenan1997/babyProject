@@ -1,0 +1,28 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+body {
+    background-color: white !important;
+}
+
+
+.container-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.container-detail {
+    display: flex;
+    gap: 28px;
+    margin-top: 46px;
+    padding: 0 4%;
+}
+
+
+

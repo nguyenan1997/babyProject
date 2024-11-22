@@ -1,10 +1,13 @@
 'use client'
-import React, { useState} from "react";
+import React, { useState } from "react";
+import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons'; // Solid heart icon
 import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons'; // Regular heart icon
 import { convertCurrencyString } from "@/common/swiper/SwiperComponet";
 import Modal from "../Modal/ModalConfirnAddProduct";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import CSS mặc định
 
 
 // Define the type for the product data
@@ -29,6 +32,17 @@ interface ComponentCartProductProps {
 const ComponentCartProduct: React.FC<ComponentCartProductProps> = ({ data, index, flag }) => {
     const [liked, setLiked] = useState(false);
     const [showModal, setShowModal] = useState(false);
+    const notify = () => {
+        toast.success("✨ Sản phẩm bạn chọn đã được thêm vào giỏ hàng 🎉", {
+            position: "bottom-right", // Vị trí góc dưới bên phải;
+            autoClose: 3000, // Tự động đóng sau 3 giây
+            hideProgressBar: false, // Hiển thị thanh tiến trình
+            closeOnClick: true, // Đóng khi nhấn vào
+            pauseOnHover: true, // Tạm dừng khi di chuột
+            draggable: true, // Cho phép kéo toast
+            progressStyle: { background: "#ff6f61" }, // Đổi màu progress bar
+        });
+    };
 
     const handleToggleHeart = () => {
         setLiked(!liked); // Toggle the liked state
@@ -43,6 +57,8 @@ const ComponentCartProduct: React.FC<ComponentCartProductProps> = ({ data, index
     const addToCart = (product: Product, setCart: any, cart: any) => {
         buttonAddListItem(product, setCart, cart);
         closePopup(); // Close the modal after adding the product
+        notify()
+
     };
     const discountPercentage = () => {
         const prevPrice = convertCurrencyString(data.prevPrice);
@@ -53,10 +69,13 @@ const ComponentCartProduct: React.FC<ComponentCartProductProps> = ({ data, index
     return (
         <div className={flag === 'main2' ? "info-product" : "info-product main-6-right-slide"}>
             <div className="infor-product-head">
-                <a href="#">
+                <Link href={{
+                    pathname: "/DetailProduct",
+                    query: {product: JSON.stringify(data)},
+                }}>
                     <img src={data.img} alt={data.title} />
-                </a>
-                <div style={discountPercentage() === 0 ? {display: "none"} : {display:"block"}}>-{discountPercentage()}%</div>
+                </Link>
+                <div style={discountPercentage() === 0 ? { display: "none" } : { display: "block" }}>-{discountPercentage()}%</div>
                 <p className="heart-main3">
                     <div onClick={handleToggleHeart} style={{ cursor: 'pointer', fontSize: '28px' }}>
                         <FontAwesomeIcon
@@ -64,11 +83,13 @@ const ComponentCartProduct: React.FC<ComponentCartProductProps> = ({ data, index
                             style={{ color: liked ? 'red' : 'gray' }}
                             data-product-id={index}
                         />
-                    </div>                                                                                                
+                    </div>
                 </p>
             </div>
             <div className="infor-product-bottom">
-                <p>{data.title}</p>
+                <Link href="/DetailProduct">
+                    <p>{data.title}</p>
+                </Link>
                 <div className="price-shop">
                     <div className="price-shop-rate">
                         <span className="container-rate">

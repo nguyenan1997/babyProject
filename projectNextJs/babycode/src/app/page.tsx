@@ -1,8 +1,9 @@
 'use client'
 import Image from "next/image";
-import Link from "next/link";
 import { API } from "@/services/API";
-import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Import CSS mặc định
+import { useState } from "react";
 import FirstComponent from "@/Component/MainAllPage/MainHomePage/FirstComponent/FirstComponet";
 import SecondComponent from "@/Component/MainAllPage/MainHomePage/SecondComponent/SecondComponent";
 import ComponentMain3 from "@/Component/MainAllPage/MainHomePage/3thComponent/3thComponent";
@@ -38,6 +39,7 @@ const HomePage = () => {
         <ComponentMain9 APIdata = {API}/>
         {/* Phần Main-10 */}
         <ComponentMain10 />
+        <ToastContainer />
       </main>
   )
 }
