@@ -4,7 +4,7 @@ import Navigation from "@/Component/MainAllPage/MainDetailProducts/Navigation/Na
 import DetailLeft from "@/Component/MainAllPage/MainDetailProducts/Detail/DetailLeft/DetailLeft";
 import DetailRight from "@/Component/MainAllPage/MainDetailProducts/Detail/DetailRight/DetailRight";
 
-const MainDetailProduct = async ({searchParams}: {searchParams: { [key: string]: string }}) => {
+const MainDetailProduct = ({searchParams}: {searchParams: { [key: string]: string }}) => {
     let product = null;
     try {
         product = searchParams.product ? JSON.parse(searchParams.product) : null;

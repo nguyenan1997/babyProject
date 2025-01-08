@@ -27,7 +27,6 @@ const DetailLeft = ({data}: {data: any}) => {
                             </li>
                         )
                     })}
-
                 </ul>
             </div>
             <div className="banner">
